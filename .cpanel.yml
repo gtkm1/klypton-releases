@@ -9,6 +9,4 @@ deployment:
     - /bin/cp log-download.php $DEPLOYPATH
     - /bin/cp -R css $DEPLOYPATH
     - /bin/cp -R js $DEPLOYPATH
-    - /bin/cp -R assets $DEPLOYPATH
-
-#end    
+    - /bin/cp -R assets $DEPLOYPATH   
