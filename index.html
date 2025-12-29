@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Freelancer - Start Bootstrap Theme</title>
+        <title>KLYPTON - A free video analysis and clip creation tool</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -20,102 +20,163 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand" href="#page-top">
+                    <img src="assets/img/klypton-logo-500pxh.png" alt="KLYPTON logo"/>
+                </a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded syncopate" href="#pageHeader">home</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded syncopate" href="#learn">learn</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded syncopate" href="#about">about</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded syncopate" href="#contact">contact</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Masthead-->
-        <header class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Start Bootstrap</h1>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
+        <header class="masthead bg-primary text-white" id="pageHeader">
+            
+            <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-between">
+
+                <!-- Masthead Subheading (Left side on large screens)-->
+                <div class="text-center text-lg-start mb-4 mb-lg-0 flex-shrink-0">
+                    <p class="masthead-subheading font-weight-light mb-0">A free video analysis and clip creation tool</p>
+                    <div class="divider-custom divider-light">
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <div class="text-center mt-2">
+                        <a class="btn btn-lg btn-outline-light download-btn-direct mb-2 d-block" href="#">
+                            <i class="fas fa-download me-2"></i>
+                            Direct Download - <span class="download-version">ver 1.4.24</span>
+                        </a>
+                        <a class="btn btn-lg btn-outline-light download-btn-github d-block" href="#">
+                            <i class="fab fa-github me-2"></i>
+                            Download from Github - <span class="download-version">ver 1.4.24</span>
+                        </a>
+                        <div class="mt-2 small fst-italic">
+                            <i class="fab fa-windows me-1"></i>Windows-only
+                        </div>
+                    </div>
                 </div>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p>
+                
+                <!-- Masthead Image (Right side on large screens)-->
+                <div class="ms-lg-4 flex-shrink-0">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#mastheadImageModal">
+                        <img class="img-thumbnail border border-3 border-light shadow-lg" 
+                             src="assets/img/app-screen-2-600.jpg" 
+                             alt="KLYPTON free video clipping app for Windows" 
+                             style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                             onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 1rem 3rem rgba(255,255,255,.3)';"
+                             onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='';" />
+                    </a>
+                </div>
+
             </div>
+
         </header>
-        <!-- Portfolio Section-->
-        <section class="page-section portfolio" id="portfolio">
+
+        <!-- Masthead Image Modal -->
+        <div class="modal fade" id="mastheadImageModal" tabindex="-1" aria-labelledby="mastheadImageModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title" id="mastheadImageModalLabel">KLYPTON Windows App</h5>
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center p-0">
+                        <img class="img-fluid" src="assets/img/app-screen-2-full.jpg" alt="KLYPTON full screenshot" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Learn Section-->
+        <section class="page-section portfolio" id="learn">
             <div class="container">
-                <!-- Portfolio Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
+
+                <!-- About Section Heading-->
+                <h2 class="page-section-heading text-center text-secondary syncopate">learn</h2>
                 <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom divider-secondary">
                     <div class="divider-custom-line"></div>
                 </div>
+
                 <!-- Portfolio Grid Items-->
                 <div class="row justify-content-center">
                     <!-- Portfolio Item 1-->
-                    <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="col-md-6 col-lg-3 mb-5">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/cabin.png" alt="..." />
+<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@beachtreasurehunt/video/7581951469146869023" data-video-id="7581951469146869023" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@beachtreasurehunt" href="https://www.tiktok.com/@beachtreasurehunt?refer=embed">@beachtreasurehunt</a> I found lost treasures in sand and also found iphones🥰🤩<a title="beachcleaning" target="_blank" href="https://www.tiktok.com/tag/beachcleaning?refer=embed">#beachcleaning</a> <a title="discovery" target="_blank" href="https://www.tiktok.com/tag/discovery?refer=embed">#discovery</a> <a title="beach" target="_blank" href="https://www.tiktok.com/tag/beach?refer=embed">#beach</a> <a title="treasurefind" target="_blank" href="https://www.tiktok.com/tag/treasurefind?refer=embed">#treasurefind</a> <a title="iphones" target="_blank" href="https://www.tiktok.com/tag/iphones?refer=embed">#iphones</a> <a target="_blank" title="♬ original sound - Beach Gold Hunt" href="https://www.tiktok.com/music/original-sound-7581951908982655775?refer=embed">♬ original sound - Beach Gold Hunt</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
                         </div>
                     </div>
                     <!-- Portfolio Item 2-->
-                    <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="col-md-6 col-lg-3 mb-5">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/cake.png" alt="..." />
+<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@beachtreasurehunt/video/7588616751106116895" data-video-id="7588616751106116895" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@beachtreasurehunt" href="https://www.tiktok.com/@beachtreasurehunt?refer=embed">@beachtreasurehunt</a> Find gold on beach🤩<a title="viral" target="_blank" href="https://www.tiktok.com/tag/viral?refer=embed">#viral</a> <a title="gold" target="_blank" href="https://www.tiktok.com/tag/gold?refer=embed">#gold</a> <a title="beach" target="_blank" href="https://www.tiktok.com/tag/beach?refer=embed">#beach</a> <a title="treasurefind" target="_blank" href="https://www.tiktok.com/tag/treasurefind?refer=embed">#treasurefind</a> <a title="discovery" target="_blank" href="https://www.tiktok.com/tag/discovery?refer=embed">#discovery</a> <a target="_blank" title="♬ original sound - Beach Gold Hunt" href="https://www.tiktok.com/music/original-sound-7588616772052421407?refer=embed">♬ original sound - Beach Gold Hunt</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
                         </div>
                     </div>
                     <!-- Portfolio Item 3-->
-                    <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="col-md-6 col-lg-3 mb-5">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/circus.png" alt="..." />
+<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@beachtreasurehunt/video/7587326205377006878" data-video-id="7587326205377006878" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@beachtreasurehunt" href="https://www.tiktok.com/@beachtreasurehunt?refer=embed">@beachtreasurehunt</a> Find gold in lake collect 1 lg gold per day🤩<a title="discovery" target="_blank" href="https://www.tiktok.com/tag/discovery?refer=embed">#discovery</a> <a title="treasurefind" target="_blank" href="https://www.tiktok.com/tag/treasurefind?refer=embed">#treasurefind</a> <a title="beach" target="_blank" href="https://www.tiktok.com/tag/beach?refer=embed">#beach</a> <a title="gold" target="_blank" href="https://www.tiktok.com/tag/gold?refer=embed">#gold</a> <a title="viral" target="_blank" href="https://www.tiktok.com/tag/viral?refer=embed">#viral</a> <a target="_blank" title="♬ original sound - Beach Gold Hunt" href="https://www.tiktok.com/music/original-sound-7587326125047974687?refer=embed">♬ original sound - Beach Gold Hunt</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
                         </div>
                     </div>
                     <!-- Portfolio Item 4-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                    <div class="col-md-6 col-lg-3 mb-5">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/game.png" alt="..." />
+<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@beachtreasurehunt/video/7587162891489479967" data-video-id="7587162891489479967" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@beachtreasurehunt" href="https://www.tiktok.com/@beachtreasurehunt?refer=embed">@beachtreasurehunt</a> Find gold in lake i found 1 kg gold per day with diy gold machine🤩<a title="gold" target="_blank" href="https://www.tiktok.com/tag/gold?refer=embed">#gold</a> <a title="beach" target="_blank" href="https://www.tiktok.com/tag/beach?refer=embed">#beach</a> <a title="treasurefind" target="_blank" href="https://www.tiktok.com/tag/treasurefind?refer=embed">#treasurefind</a> <a title="discovery" target="_blank" href="https://www.tiktok.com/tag/discovery?refer=embed">#discovery</a> <a title="tiktokcreatorsearchinsightsincentive" target="_blank" href="https://www.tiktok.com/tag/tiktokcreatorsearchinsightsincentive?refer=embed">#TikTokCreatorSearchInsightsIncentive</a> <a target="_blank" title="♬ original sound - Beach Gold Hunt" href="https://www.tiktok.com/music/original-sound-7587162797390646046?refer=embed">♬ original sound - Beach Gold Hunt</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
                         </div>
                     </div>
                     <!-- Portfolio Item 5-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
+                    <div class="col-md-6 col-lg-3 mb-5">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/safe.png" alt="..." />
+<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@beachtreasurehunt/video/7584914786912079135" data-video-id="7584914786912079135" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@beachtreasurehunt" href="https://www.tiktok.com/@beachtreasurehunt?refer=embed">@beachtreasurehunt</a> Find gold on beach🤩<a title="gold" target="_blank" href="https://www.tiktok.com/tag/gold?refer=embed">#gold</a> <a title="discovery" target="_blank" href="https://www.tiktok.com/tag/discovery?refer=embed">#discovery</a> <a title="beach" target="_blank" href="https://www.tiktok.com/tag/beach?refer=embed">#beach</a> <a title="treasurefind" target="_blank" href="https://www.tiktok.com/tag/treasurefind?refer=embed">#treasurefind</a> <a title="beachcleaning" target="_blank" href="https://www.tiktok.com/tag/beachcleaning?refer=embed">#beachcleaning</a> <a target="_blank" title="♬ original sound - Beach Gold Hunt" href="https://www.tiktok.com/music/original-sound-7584914668973181726?refer=embed">♬ original sound - Beach Gold Hunt</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
                         </div>
                     </div>
                     <!-- Portfolio Item 6-->
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-md-6 col-lg-3 mb-5">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/submarine.png" alt="..." />
+<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@beachtreasurehunt/video/7582991473071721759" data-video-id="7582991473071721759" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@beachtreasurehunt" href="https://www.tiktok.com/@beachtreasurehunt?refer=embed">@beachtreasurehunt</a> Beach Treasure finds🤩<a title="beachcleaning" target="_blank" href="https://www.tiktok.com/tag/beachcleaning?refer=embed">#beachcleaning</a> <a title="treasurefind" target="_blank" href="https://www.tiktok.com/tag/treasurefind?refer=embed">#treasurefind</a> <a title="beach" target="_blank" href="https://www.tiktok.com/tag/beach?refer=embed">#beach</a> <a title="discovery" target="_blank" href="https://www.tiktok.com/tag/discovery?refer=embed">#discovery</a> <a title="gold" target="_blank" href="https://www.tiktok.com/tag/gold?refer=embed">#gold</a> <a target="_blank" title="♬ original sound - Beach Gold Hunt" href="https://www.tiktok.com/music/original-sound-7582996675645016863?refer=embed">♬ original sound - Beach Gold Hunt</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 7-->
+                    <div class="col-md-6 col-lg-3 mb-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal7">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@beachtreasurehunt/video/7579615699799117087" data-video-id="7579615699799117087" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@beachtreasurehunt" href="https://www.tiktok.com/@beachtreasurehunt?refer=embed">@beachtreasurehunt</a> Beach Treasure finds🥰<a title="beachcleaning" target="_blank" href="https://www.tiktok.com/tag/beachcleaning?refer=embed">#beachcleaning</a> <a title="discovery" target="_blank" href="https://www.tiktok.com/tag/discovery?refer=embed">#discovery</a> <a title="beach" target="_blank" href="https://www.tiktok.com/tag/beach?refer=embed">#beach</a> <a title="treasurefind" target="_blank" href="https://www.tiktok.com/tag/treasurefind?refer=embed">#treasurefind</a> <a title="gold" target="_blank" href="https://www.tiktok.com/tag/gold?refer=embed">#gold</a> <a target="_blank" title="♬ original sound - Beach Gold Hunt" href="https://www.tiktok.com/music/original-sound-7579615583424154399?refer=embed">♬ original sound - Beach Gold Hunt</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 8-->
+                    <div class="col-md-6 col-lg-3 mb-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal8">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@beachtreasurehunt/video/7573797184399871263" data-video-id="7573797184399871263" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@beachtreasurehunt" href="https://www.tiktok.com/@beachtreasurehunt?refer=embed">@beachtreasurehunt</a> Beach Treasure finds🤩<a title="gold" target="_blank" href="https://www.tiktok.com/tag/gold?refer=embed">#gold</a> <a title="treasurefind" target="_blank" href="https://www.tiktok.com/tag/treasurefind?refer=embed">#treasurefind</a> <a title="viral" target="_blank" href="https://www.tiktok.com/tag/viral?refer=embed">#viral</a> <a title="beach" target="_blank" href="https://www.tiktok.com/tag/beach?refer=embed">#beach</a> <a title="discovery" target="_blank" href="https://www.tiktok.com/tag/discovery?refer=embed">#discovery</a> <a target="_blank" title="♬ original sound - Beach Gold Hunt" href="https://www.tiktok.com/music/original-sound-7573797198836632350?refer=embed">♬ original sound - Beach Gold Hunt</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
                         </div>
                     </div>
                 </div>
@@ -125,24 +186,74 @@
         <section class="page-section bg-primary text-white mb-0" id="about">
             <div class="container">
                 <!-- About Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
+                <h2 class="page-section-heading text-center text-white syncopate">about</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- About Section Intro-->
+                <div class="row justify-content-center mb-4">
+                    <div class="col-lg-10">
+                        <p>KLYPTON is an advanced video analysis & clip creation tool.</p>
+                        <p>It downloads YouTube videos and helps you create optimized clips — manually via our editor, automatically via keywords or ✨AI analysis, or algorithmically via scene analysis...</p>
+                        <p>... then outputs your .mp4 clips, combined summary video, and text transcripts.</p>
+                    </div>
                 </div>
                 <!-- About Section Content-->
-                <div class="row">
-                    <div class="col-lg-4 ms-auto"><p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p></div>
-                    <div class="col-lg-4 me-auto"><p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p></div>
-                </div>
-                <!-- About Section Button-->
-                <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/theme/freelancer/">
-                        <i class="fas fa-download me-2"></i>
-                        Free Download!
-                    </a>
+                <div class="row justify-content-center px-5">
+                    <div class="col-lg-4">
+                        <h5 class="syncopate mb-3 ms-3"><i class="fas fa-video me-2"></i>Video & Audio</h5>
+                        <ul class="small">
+                            <li>List videos in a YouTube playlist or channel</li>
+                            <li>Sort videos by likes, follower count, length, date, etc</li>
+                            <li>Batch convert YouTube URL links to short form</li>
+                            <li>Extract video, audio, and transcript from YT videos</li>
+                            <li>Extract audio to MP3 and 7 other audio formats</li>
+                            <li>Create SRT subtitle files and 6 other formats</li>
+                            <li>Burn-in (hard coded) subtitles to video</li>
+                            <li>Find keywords in transcript / get kw density report</li>
+                            <li>Fix/enhance video (speed, rotation, brightness...)</li>
+                            <li>Fix/enhance audio (normalize audio, remove noise...)</li>
+                            <li>Add text or watermark to video</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <h5 class="syncopate mb-3 ms-3"><i class="fas fa-magic me-2"></i>AI & Analysis</h5>
+                        <ul class="small">
+                            <li>✨ AI-keyword clip detection with context awareness</li>
+                            <li>✨ AI-automatic clip detection (no keywords needed)</li>
+                            <li>✨ AI-rewrite video titles with SEO optimization</li>
+                            <li>✨ AI-generate summaries</li>
+                            <li>✨ AI-fix subtitle capitalization & punctuation</li>
+                            <li>Analyze clips to reverse-engineer viral settings</li>
+                            <li>Create and save custom viral detection profiles</li>
+                            <li>Subtitle keyword matching (exact/related/contains)</li>
+                            <li>Detect scene cuts and transitions</li>
+                            <li>Audio and motion detection</li>
+                            <li>Process up to 100 videos in a single batch</li>
+                        </ul>
+                        <p class="small fst-italic text-center">✨ AI-powered features require OpenAI api key</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <h5 class="syncopate mb-3 ms-3"><i class="fas fa-cut me-2"></i>Create Clips</h5>
+                        <ul class="small">
+                            <li>Interactive Clip Editor</li>
+                            <li>Line-by-line subtitle edit</li>
+                            <li>Auto-create clips from:
+                            <ul class="small">
+                                <li>✨ AI transcript analysis</li>
+                                <li>Face prominence detection</li>
+                                <li>Speech rate patterns</li>
+                                <li>Video motion intensity</li>
+                                <li>Object vs. camera motion</li>
+                                <li>Audio volume peaks/lows</li>
+                                <li>Audio pitch, flatness, brightness</li>
+                                <li>Transcript sentence detection</li>
+                                <li>YouTube most-replayed graph</li>
+                            </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -150,11 +261,9 @@
         <section class="page-section" id="contact">
             <div class="container">
                 <!-- Contact Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
+                <h2 class="page-section-heading text-center text-secondary syncopate mb-0">contact</h2>
                 <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom divider-secondary">
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Contact Section Form-->
@@ -167,51 +276,45 @@
                         <!-- To make this form functional, sign up at-->
                         <!-- https://startbootstrap.com/solution/contact-forms-->
                         <!-- to get an API token!-->
-                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                        <form id="contactForm">
                             <!-- Name input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                                <label for="name">Full name</label>
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                                <input class="form-control ps-2" id="name" type="text" placeholder="Enter your name..." required />
+                                <label for="name">Name</label>
+                                <div class="invalid-feedback">A name is required.</div>
                             </div>
                             <!-- Email address input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                                <input class="form-control ps-2" id="email" type="email" placeholder="name@example.com" required />
                                 <label for="email">Email address</label>
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                                <div class="invalid-feedback">A valid email is required.</div>
                             </div>
-                            <!-- Phone number input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                <label for="phone">Phone number</label>
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                            <!-- Category dropdown-->
+                            <div class="mb-3">
+                                <select class="form-select ps-1" id="category" required>
+                                    <option value="" selected disabled>Select a category...</option>
+                                    <option value="feature-request">Feature Request</option>
+                                    <option value="bug-fix">Bug Fix</option>
+                                    <option value="general">General</option>
+                                </select>
+                                <div class="invalid-feedback">Please select a category.</div>
                             </div>
                             <!-- Message input-->
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                                <textarea class="form-control ps-2" id="message" placeholder="Enter your message here..." style="height: 10rem" maxlength="5000" required></textarea>
                                 <label for="message">Message</label>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                                <div class="invalid-feedback">A message is required.</div>
                             </div>
                             <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
                             <div class="d-none" id="submitSuccessMessage">
                                 <div class="text-center mb-3">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    To activate this form, sign up at
-                                    <br />
-                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                    <div class="fw-bolder">Thank you! Your message has been sent.</div>
                                 </div>
                             </div>
                             <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message. Please try again.</div></div>
                             <!-- Submit Button-->
-                            <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Send</button>
+                            <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Send</button>
                         </form>
                     </div>
                 </div>
@@ -221,232 +324,39 @@
         <footer class="footer text-center">
             <div class="container">
                 <div class="row">
-                    <!-- Footer Location-->
+                    <!-- Footer Location
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Location</h4>
+                        <h4 class="syncopate mb-4">location</h4>
                         <p class="lead mb-0">
                             2215 John Daniel Drive
                             <br />
                             Clark, MO 65243
                         </p>
-                    </div>
+                    </div>-->
                     <!-- Footer Social Icons-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Around the Web</h4>
+                    <div class="col-lg-12 mb-5 mb-lg-0">
+                        <h4 class="syncopate mb-4">around the web</h4>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
                     </div>
-                    <!-- Footer About Text-->
+                    <!-- Footer About Text
                     <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                        <h4 class="syncopate mb-4">about klypton</h4>
                         <p class="lead mb-0">
-                            Freelance is a free to use, MIT licensed Bootstrap theme created by
-                            <a href="http://startbootstrap.com">Start Bootstrap</a>
-                            .
+                            A video analysis and clip creation tool for educational and fair use purposes only. Respect copyright and YouTube's Terms of Service.
                         </p>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </footer>
         <!-- Copyright Section-->
-        <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright &copy; Your Website 2023</small></div>
+        <div class="copyright py-4 text-center">
+            <p class="fs-7">A video analysis and clip creation tool for educational and fair use purposes only. Respect copyright and YouTube's Terms of Service.</p>
+            <div class="container fs-7">&copy; klypton.com <span class="footer-year">2025</span></div>
         </div>
-        <!-- Portfolio Modals-->
-        <!-- Portfolio Modal 1-->
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Log Cabin</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cabin.png" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 2-->
-        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tasty Cake</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 3-->
-        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Circus Tent</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/circus.png" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 4-->
-        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Controller</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/game.png" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 5-->
-        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/safe.png" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 6-->
-        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/submarine.png" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->

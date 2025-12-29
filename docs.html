@@ -1,0 +1,2252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KLYPTON - User Guide & Reference</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #2196F3;
+            --danger-color: #dc143c;
+            --warning-color: #ff9800;
+            --dark-bg: #1a1a1a;
+            --light-bg: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+        }
+
+        /* Sidebar navigation */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 260px;
+            background: white;
+            overflow-y: auto;
+            border-right: 1px solid #e0e0e0;
+            padding: 0 0;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-nav li {
+            margin: 0;
+        }
+
+        .sidebar-nav li a {
+            display: block;
+            padding: 8px 20px;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar-nav a:hover {
+            background: var(--light-bg);
+            border-left-color: var(--secondary-color);
+        }
+
+        .sidebar-nav a.active {
+            background: #e3f2fd;
+            border-left-color: var(--primary-color);
+            font-style: italic;
+        }
+
+        .sidebar-nav .sub-item {
+            padding: 3px 0 5px 45px;
+            font-size: 0.9rem;
+        }
+
+        /* Main content */
+        .main-content {
+            margin-left: 260px;
+            padding: 20px;
+        }
+
+        /* Sections */
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .section h3 {
+            color: #333;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        /* Feature boxes */
+        .feature-box {
+            background: #f8f9fa;
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .feature-box h4 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        /* Tips and warnings */
+        .tip {
+            background: #e8f5e9;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .warning {
+            background: #fff3e0;
+            border-left: 4px solid var(--warning-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .important {
+            background: #ffebee;
+            border-left: 4px solid var(--danger-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        /* Code blocks */
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: var(--danger-color);
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        /* Keyboard keys */
+        kbd {
+            background: linear-gradient(180deg, #fff, #e8e8e8);
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+            color: #333;
+            display: inline-block;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.85em;
+            padding: 2px 6px;
+            margin: 0 2px;
+        }
+
+        /* Tables */
+        .table-responsive {
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        /* Badges */
+        .badge-primary {
+            background: var(--primary-color);
+        }
+
+        .badge-ai {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                top: 0;
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Print styles */
+        @media print {
+
+            .sidebar,
+            .header {
+                display: none;
+            }
+
+            .main-content {
+                margin: 0;
+            }
+        }
+
+        .emoji-large {
+            font-size: 1.2em;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        /* Search box styles */
+        .docs-search-container {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 10px 10px;
+            margin: 0;
+            border-bottom: 1px solid #e0e0e0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            width: 40%;
+            float: right;
+        }
+
+        .docs-search-wrapper {
+            position: relative;
+            max-width: 500px;
+        }
+
+        .docs-search-input {
+            width: 100%;
+            padding: 7px 10px 7px 40px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .docs-search-input:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+        }
+
+        .docs-search-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 16px;
+            pointer-events: none;
+        }
+
+        .docs-search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            margin-top: 5px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+            z-index: 1000;
+        }
+
+        .docs-search-results.show {
+            display: block;
+        }
+
+        .docs-search-result {
+            padding: 10px 15px;
+            cursor: pointer;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.15s;
+        }
+
+        .docs-search-result:last-child {
+            border-bottom: none;
+        }
+
+        .docs-search-result:hover {
+            background: #f5f9ff;
+        }
+
+        .docs-search-result.focused {
+            background: #e3f2fd;
+            outline: 2px solid var(--secondary-color);
+            outline-offset: -2px;
+        }
+
+        .docs-search-result-title {
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .docs-search-result-section {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .docs-search-result-match {
+            font-size: 12px;
+            color: #666;
+            margin-top: 3px;
+        }
+
+        .docs-search-result-match mark {
+            background: #fff3cd;
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+
+        .docs-search-no-results {
+            padding: 15px;
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <ul class="sidebar-nav">
+            <li><a href="#overview" class="nav-link">📋 Overview</a></li>
+            <li><a href="#getting-started" class="nav-link">🚀 Getting Started</a></li>
+            <li><a href="#outputs-files" class="nav-link">📁 Outputs & Files</a></li>
+            <li><a href="#settings-reference" class="nav-link">⚙️ Settings Reference</a></li>
+            <li>
+                <a href="#url-management" class="nav-link">🔗 URL Management</a>
+                <ul class="sidebar-nav">
+                    <li><a href="#fetching-urls" class="nav-link sub-item">Fetching URLs</a></li>
+                    <li><a href="#preview-mode" class="nav-link sub-item">Preview Mode</a></li>
+                    <li><a href="#bad-urls" class="nav-link sub-item">Bad URLs</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#clip-creation" class="nav-link">✂️ Clip Creation Methods</a>
+                <ul class="sidebar-nav">
+                    <li><a href="#interactive-editor" class="nav-link sub-item">Interactive Clip Editor</a></li>
+                    <li><a href="#ai-automatic" class="nav-link sub-item"><span>✨</span> AI-Automatic</a></li>
+                    <li><a href="#ai-keywords" class="nav-link sub-item"><span>✨</span> AI-Keywords</a></li>
+                    <li><a href="#subtitle-keywords" class="nav-link sub-item">Subtitle Keywords</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#scene-analysis" class="nav-link">📊 Scene Analysis</a>
+                <ul class="sidebar-nav">
+                    <li><a href="#scene-chart" class="nav-link sub-item">Analysis Chart</a></li>
+                    <li><a href="#energy-inputs" class="nav-link sub-item">Energy Inputs (15 Sources)</a></li>
+                    <li><a href="#viral-algorithm" class="nav-link sub-item">Viral Score Algorithm</a></li>
+                    <li><a href="#category-profiles" class="nav-link sub-item">Category Profiles</a></li>
+                    <li><a href="#custom-profiles" class="nav-link sub-item">Custom Viral Profiles</a></li>
+                    <li><a href="#cut-detection" class="nav-link sub-item">Cut Detection</a></li>
+                    <li><a href="#clip-regression" class="nav-link sub-item">Clip Regression Analysis</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#transcript-tools" class="nav-link">📝 Transcript Tools</a>
+                <ul class="sidebar-nav">
+                    <li><a href="#transcript-edit-mode" class="nav-link sub-item">Transcript Edit Mode</a></li>
+                    <li><a href="#ai-transcript-fix" class="nav-link sub-item">✨ AI Transcript Fix</a></li>
+                    <li><a href="#export-srt" class="nav-link sub-item">Export SRT</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#clip-settings" class="nav-link">⚙️ Clip Settings</a>
+                <ul class="sidebar-nav">
+                    <li><a href="#timing-settings" class="nav-link sub-item">Timing Controls</a></li>
+                    <li><a href="#fade-effects" class="nav-link sub-item">Fade Effects</a></li>
+                    <li><a href="#clip-ordering" class="nav-link sub-item">Clip Ordering</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#ai-features" class="nav-link">✨ AI Features</a>
+                <ul class="sidebar-nav">
+                    <li><a href="#ai-setup" class="nav-link sub-item">OpenAI Setup</a></li>
+                    <li><a href="#ai-privacy" class="nav-link sub-item">AI &amp; Privacy</a></li>
+                    <li><a href="#ai-titles" class="nav-link sub-item">AI Titles</a></li>
+                    <li><a href="#ai-summaries" class="nav-link sub-item">AI Summaries</a></li>
+                    <li><a href="#ai-sentiment" class="nav-link sub-item">AI Sentiment Analysis</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#video-audio" class="nav-link">🎬 Video & Audio</a>
+                <ul class="sidebar-nav">
+                    <li><a href="#video-quality" class="nav-link sub-item">Video Quality</a></li>
+                    <li><a href="#video-enhancements" class="nav-link sub-item">Video Enhancements</a></li>
+                    <li><a href="#audio-enhancements" class="nav-link sub-item">Audio Enhancements</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#subtitles" class="nav-link">📝 Subtitles</a>
+                <ul class="sidebar-nav">
+                    <li><a href="#subtitle-formats" class="nav-link sub-item">Export Formats</a></li>
+                    <li><a href="#burn-in" class="nav-link sub-item">Burn-in Subtitles</a></li>
+                    <li><a href="#keyword-highlighting" class="nav-link sub-item">Keyword Highlighting</a></li>
+                </ul>
+            </li>
+            <li><a href="#watermarks" class="nav-link">💧 Watermarks</a></li>
+            <li>
+                <a href="#advanced" class="nav-link">🔧 Advanced Features</a>
+                <ul class="sidebar-nav">
+                    <li><a href="#vpn-integration" class="nav-link sub-item"><span>🌍</span> VPN Integration</a></li>
+                    <li><a href="#browser-cookies" class="nav-link sub-item"><span>🍪</span> Browser Cookies</a></li>
+                    <li><a href="#batch-processing" class="nav-link sub-item">Batch Processing</a></li>
+                </ul>
+            </li>
+            <li><a href="#completed-videos" class="nav-link">📊 Completed Videos Table</a></li>
+            <li><a href="#keyboard-shortcuts" class="nav-link">⌨️ Keyboard Shortcuts</a></li>
+            <li><a href="#troubleshooting" class="nav-link">🔍 Troubleshooting</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Search Box -->
+        <div class="docs-search-container">
+            <div class="docs-search-wrapper">
+                <span class="docs-search-icon">🔍</span>
+                <input type="text" class="docs-search-input" id="docsSearchInput" placeholder="Search" autocomplete="off">
+                <div class="docs-search-results" id="docsSearchResults"></div>
+            </div>
+        </div>
+
+        <!-- Overview Section -->
+        <section id="overview" class="section">
+            <h2>📋 Overview</h2>
+            <p><strong>KLYPTON</strong> is a powerful Windows application for creating viral-optimized video clips from long-form YouTube content. It combines advanced scene analysis algorithms, AI-powered content understanding, and an intuitive clip editing interface to help you extract the most engaging moments from any video.</p>
+
+            <div class="feature-box">
+                <h4>Key Capabilities</h4>
+                <ul>
+                    <li>🎬 Process up to 100 YouTube videos in a single batch</li>
+                    <li>📊 <strong>Scene Analysis System:</strong> 15+ data sources including motion, audio, speech rate, face detection, AI sentiment, and YouTube's Most Replayed heatmap</li>
+                    <li>💥 <strong>Viral Score Algorithm:</strong> Hook + Sustain + Synchrony formula for detecting shareability</li>
+                    <li>🎯 <strong>Category Profiles:</strong> 15 pre-tuned detection profiles matching YouTube categories, plus custom profile creation</li>
+                    <li>✨ AI-powered clip selection, titles, summaries, and transcript enhancement using OpenAI</li>
+                    <li>🔍 Keyword-based clip extraction from subtitles</li>
+                    <li>✂️ Interactive Clip Editor with synchronized video, transcript, and analysis chart</li>
+                    <li>📝 Transcript editing tools with AI-fix for capitalization/punctuation</li>
+                    <li>🎨 Video and audio enhancements (speed, color, EQ, noise reduction)</li>
+                    <li>💧 Custom watermarks and burn-in subtitles</li>
+                    <li>🌍 VPN integration</li>
+                    <li>📈 Clip Regression Analysis for reverse-engineering optimal detection settings</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <!-- Getting Started -->
+        <section id="getting-started" class="section">
+            <h2>🚀 Getting Started</h2>
+
+            <h3>Quick Start Guide</h3>
+            <ol>
+                <li><span class="step-number">1</span><strong>Get URLs:</strong> Either manually enter YouTube URLs or
+                    use the Fetch feature to search for videos</li>
+                <li><span class="step-number">2</span><strong>Choose Clip Method:</strong> Select "Interactive Clip Editor" for full scene analysis, or other methods (AI-Automatic, AI-Keywords, Subtitle Keywords)</li>
+                <li><span class="step-number">3</span><strong>Enable Scene Analysis:</strong> Check "Scene/viral analysis" for the powerful analysis chart (recommended)</li>
+                <li><span class="step-number">4</span><strong>Configure Settings:</strong> Set keywords (if needed), video quality, and other options</li>
+                <li><span class="step-number">5</span><strong>Click GO:</strong> Start processing your videos</li>
+                <li><span class="step-number">6</span><strong>Create Clips:</strong> In the Interactive Clip Editor, use the Scene Analysis controls or manually select clips</li>
+                <li><span class="step-number">7</span><strong>Continue:</strong> Click Continue to render and save your clips</li>
+            </ol>
+
+            <div class="tip">
+                <strong>💡 Tip:</strong> Start with a single video to familiarize yourself with the Scene Analysis chart and controls before running batch jobs.
+            </div>
+
+            <h3>Recommended Workflow for Viral Clips</h3>
+            <ol>
+                <li><span class="step-number">1</span>Enable <strong>Scene/viral analysis</strong> checkbox before processing</li>
+                <li><span class="step-number">2</span>In the Interactive Clip Editor, select the appropriate <strong>Category Profile</strong> for your content type</li>
+                <li><span class="step-number">3</span>Adjust <strong>CLIP ENERGY</strong> sliders to weight the signals that matter most for your content</li>
+                <li><span class="step-number">4</span>Set <strong># of clips</strong>, <strong>Length</strong>, and <strong>Min sep</strong></li>
+                <li><span class="step-number">5</span>Click <strong>UPDATE</strong> to auto-generate clips based on the analysis</li>
+                <li><span class="step-number">6</span>Fine-tune clip boundaries manually if needed</li>
+                <li><span class="step-number">7</span>Optionally run <strong>Analyze Clips</strong> to get insights and save as a custom profile</li>
+            </ol>
+
+            <h3>Application Status Indicators</h3>
+            <p>The app uses various emojis and indicators to communicate status:</p>
+            <ul>
+                <li>✅ Ready - Application is ready for new jobs</li>
+                <li>🚀 Starting job - Processing has begun</li>
+                <li>⬇️ Downloading - Fetching video and transcript</li>
+                <li>📊 Analyzing - Running scene/viral analysis scan</li>
+                <li>✂️ Creating clips - Segmenting video</li>
+                <li>🎬 Video ready - Processing complete</li>
+                <li>⚠️ Warning - Non-critical issue</li>
+                <li>❌ Error - Critical issue</li>
+            </ul>
+        </section>
+
+        <!-- Outputs & Files -->
+        <section id="outputs-files" class="section">
+            <h2>📁 Outputs &amp; Files</h2>
+
+            <p>KLYPTON saves all output locally on <strong>your machine</strong>. The main output location is the <code>projects/</code> folder (one subfolder per video/job).</p>
+
+            <div class="feature-box">
+                <ul>
+                    <li><strong>📂 icon:</strong> Click the folder icon to open the <code>projects/</code> folder.</li>
+                </ul>
+            </div>
+
+            <h3>What You’ll See in a Project Folder</h3>
+            <p>Exact filenames vary depending on which tasks you enabled, but common outputs include:</p>
+            <ul>
+                <li><strong>Video assets:</strong> downloaded full video plus created clips and/or a summary video.</li>
+                <li><strong>Metadata:</strong> <code>container_metadata.json</code> and other job summary/metadata files.</li>
+                <li><strong>Transcripts/subtitles:</strong>
+                    <ul>
+                        <li><code>_user-fixed</code> files are created when you make manual transcript edits.</li>
+                        <li><code>_ai-fixed</code> files are created when you run ✨ AI Transcript Fix (typically also creating <code>.txt</code> and <code>.srt</code> versions).</li>
+                    </ul>
+                </li>
+                <li><strong>Scene analysis export:</strong> <code>scene_detection_chart_data.csv</code> (if you save chart data).</li>
+            </ul>
+
+            <h3>Custom Viral Profiles Output</h3>
+            <p>Custom viral profiles and clip regression data are stored in <code>custom-viral-profiles/</code>:</p>
+            <ul>
+                <li><code>cvp_*.json</code> (profile definitions)</li>
+                <li><code>cvp_*_clip_data.csv</code> (regression scan data)</li>
+            </ul>
+        </section>
+
+        <!-- Settings Reference -->
+        <section id="settings-reference" class="section">
+            <h2>⚙️ Settings Reference</h2>
+
+            <p>This section mirrors the in-app <strong>?</strong> help text from the main “Tasks / Settings” panel in the app (the goal is to match what you see there, not to teach prompt engineering or advanced tuning).</p>
+
+            <h3>Clip Creation</h3>
+
+            <details>
+                <summary><strong>Clip Creation Method</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">
+                    <p><b>Interactive Clip Editor</b><br>Select your exact clip start and end points within the video timeline or transcript. Optionally use <i>Scene/viral analysis</i> to find potentially viral clips.</p>
+                    <p>Edit and clean up the transcript — manually or use ✨AI auto-fix — save SRT sub file.</p>
+                    <p><b>✨AI - Automatic</b><br>Uses OpenAI to summarize the entire video and determine the most meaningful clips. Requires an API key.</p>
+                    <p><b>✨AI - Keywords</b><br>Uses OpenAI to determine clips from meaningful content around your keywords. Requires an API key.</p>
+                    <p><b>Subtitle Keywords</b><br>Creates clips wherever your keywords are found in the video's subtitle file.</p>
+                    <p><b>No clips needed</b><br>Select this if you don't need to have clips made but have other tasks to do (e.g. watermark, audio files, etc).</p>
+                    <p>Default: Interactive Clip Editor w/ Scene analysis</p>
+                </div>
+            </details>
+
+            <details>
+                <summary><strong>Scene/viral analysis</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">
+                    <p>Scans video for motion variances, audio variances and other dimensions, and builds a <i>Scene Analysis</i> chart plotting these data.</p>
+                    <p>Use <i>Scene Analysis</i> to highlight clips with the highest viral potential according to preset algorithms per video category, or build your own trainable detection formula.</p>
+                    <p>Set <i>Data interval</i> based on video length and PC's abilities — 0.25s for most detail (recommended). 'Auto' = 0.25 videos &lt;60 min, 0.50 &lt;180 min, 1.00 &gt;180.</p>
+                    <p>Default: Scene analysis ON, Data interval 0.25</p>
+                </div>
+            </details>
+
+            <h3>Clip Settings</h3>
+
+            <details>
+                <summary><strong>Clip Min -s</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Minimum number of seconds for a clip (7-600). Clips will be created that are this long or longer.<br><br>Default: 10 (min=7, max=600)</div>
+            </details>
+            <details>
+                <summary><strong>Clip Max -s</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Maximum number of seconds for a clip (12-600). Clips will be created that are this short or shorter.<br><br>Default: 60 (min=12, max=600)</div>
+            </details>
+            <details>
+                <summary><strong>Min Sep -s</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Enforce minimum distance between clips. This will remove clips that are too close together (0-600 seconds).<br><br>Example with Min Sep set to 30 seconds:<br> • Clip A ends at 1:30<br>• Clip B starts at 1:45 → DISCARDED (too close)<br> • Clip C starts at 2:30 (60s gap from A) → KEPT<br><br><b>Min Sep vs Max Gap:</b><br>• Min Sep (runs first) → REMOVES clips that are too close<br> • Max Gap (runs second) → MERGES clips that are too close<br><br>Set to 0 to disable (recommended for most use cases).<br><br>Default: 0 (min=0, max=600)</div>
+            </details>
+            <details>
+                <summary><strong>Max Gap -s</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Merges clips you think are too close together (0-60 seconds).<br><br> • Lower value = More but shorter separate clips<br> • Higher value = Fewer but longer merged clips<br><br><b>Min Sep vs Max Gap:</b><br>• Min Sep (runs first) → REMOVES clips that are too close<br> • Max Gap (runs second) → MERGES clips that are too close<br><br>Set to 0 to disable merging.<br><br>Default: 5 (min=0, max=60)</div>
+            </details>
+            <details>
+                <summary><strong>Final Max -s</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Max allowed length for created summary video.<br><br>Must be &gt;= Max Seconds.<br><br>If created summary video is longer than this, clips will be trimmed down bit by bit until they meet this target:<br>&nbsp;&nbsp; 1) Trimmed a little on both sides of the keyword(s).<br>&nbsp;&nbsp; 2) If still needed, clips less than 10s will be cut.<br>&nbsp;&nbsp; 3) If still needed, lowest-keyword-dense clips will be cut.<br><br>Default: 300 (min=clip max, max=1200)</div>
+            </details>
+            <details>
+                <summary><strong>Max # Clips</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">
+                    <div>For clip detection based on keywords — <i>Subtitle Keywords</i> and <i><span>✨</span>AI-Keywords</i> — this sets a maximum clip limit.</div>
+                    <div style="margin-top: 10px;">Default: Auto</div>
+                </div>
+            </details>
+            <details>
+                <summary><strong>Fade In/Out -s</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Duration (in seconds) of the fade-in / fade-out effect.<br><br>Value applied to intro and outro of final video.<br><br>Half of value applied to middle clips to acheive same effect.<br><br>Default: 1 (min=0, max=3)</div>
+            </details>
+            <details>
+                <summary><strong>Clip Ordering</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Combine clips into single summary video in this order.<br><br>Default: Normal</div>
+            </details>
+
+            <h3>Basic Extraction</h3>
+            <details>
+                <summary><strong>Download video assets</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">
+                    <p>Extract and download the video, transcript, and video metadata to the project folder.</p>
+                    <p>Note: Certain tasks already will download the video, transcript, and metadata file automatically, but check this if you're running simple tasks that don't require all these files but you want them anyway.</p>
+                </div>
+            </details>
+
+            <h3><span>✨</span> AI Summary Creation</h3>
+            <details>
+                <summary><strong>Enable AI Summary + Word Count</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Check to enable AI Summary creation and set word count target.<br><br>Default word count: 50 (min=25, max=500)</div>
+            </details>
+            <details>
+                <summary><strong>Always create AI summary</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Create an AI summary even for jobs where no keyword matches are found.<br><br>Default: unchecked</div>
+            </details>
+
+            <h3><span>✨</span> AI Title Creation</h3>
+            <details>
+                <summary><strong>Enable AI Title + Max Characters</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Check to enable AI Title creation and set max character count.<br><br>Default character count: 75 (min=20, max=200)</div>
+            </details>
+            <details>
+                <summary><strong>Always create AI title</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Create an AI title even for jobs where no keyword matches are found.<br><br>Default: unchecked</div>
+            </details>
+
+            <h3>Video</h3>
+            <details>
+                <summary><strong>Video quality</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Preferred video download quality.<br><br>Default: 480p (SD)</div>
+            </details>
+            <details>
+                <summary><strong>Adjust / fix video</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Adjusts video output in created video files (clips, summary video, full video).<br><br>Default: unchecked</div>
+            </details>
+
+            <h3>Audio</h3>
+            <details>
+                <summary><strong>Create audio files (eg mp3)</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Check to create audio files (mp3, wav, etc) of your clips and summary video.<br><br>Default: unchecked</div>
+            </details>
+            <details>
+                <summary><strong>Adjust / fix audio</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Adjusts audio output in created video files and audio-only files.<br><br>Default: unchecked</div>
+            </details>
+
+            <h3>Text / Watermark</h3>
+            <details>
+                <summary><strong>Add text or watermark</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Add a text or image watermark to your clips, summary video, and full video.<br><br>Default: unchecked</div>
+            </details>
+
+            <h3>Subtitles</h3>
+            <details>
+                <summary><strong>✨ AI-fix transcript</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Uses OpenAI to add proper capitalization and punctuation to auto-generated YouTube captions.<br><br>Creates <code>_ai-fixed</code> files (and associated <code>.txt</code>/<code>.srt</code> exports).<br><br>Default: unchecked</div>
+            </details>
+            <details>
+                <summary><strong>Highlight keywords</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Highlight keywords in the <code>.txt</code> transcript files created for clips, summary video, and full video.<br><br>Default: unchecked</div>
+            </details>
+            <details>
+                <summary><strong>Create extra subtitle files</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Choose additional subtitle formats (e.g., SRT, VTT).<br><br>Default: unchecked</div>
+            </details>
+            <details>
+                <summary><strong>Burn-in subtitles</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Add burned-in subtitles to your clips, summary video, and/or full video.<br><br>Default: unchecked</div>
+            </details>
+
+            <h3>Region &amp; Access</h3>
+            <details>
+                <summary><strong>Use browser cookies</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Use browser cookies when fetching YouTube content. Helpful if you see sign-in / bot-check errors.<br><br>Default: unchecked</div>
+            </details>
+            <details>
+                <summary><strong>Use VPN / IP rotation</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Use integrated VPN to rotate IP between jobs to reduce throttling/blocks.<br><br>Default: unchecked</div>
+            </details>
+
+            <h3>Misc</h3>
+            <details>
+                <summary><strong>Transcript min word</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Minimum spoken-word threshold for transcript-dependent tasks.<br><br>0 = disabled<br><br>Default: 100</div>
+            </details>
+            <details>
+                <summary><strong>Use existing assets</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Reuse previously downloaded assets for the same video URL to save time/bandwidth.<br><br>Default: checked</div>
+            </details>
+            <details>
+                <summary><strong>Avoid fetching table URLs</strong></summary>
+                <div class="feature-box" style="margin-top: 10px;">Avoid URLs that already exist in the Completed Videos table (in addition to other dedupe checks).<br><br>Default: checked</div>
+            </details>
+        </section>
+
+        <!-- URL Management -->
+        <section id="url-management" class="section">
+            <h2>🔗 URL Management</h2>
+
+            <h3 id="fetching-urls">Fetching URLs</h3>
+            <p>KLYPTON offers three methods to gather YouTube URLs:</p>
+
+            <div class="feature-box">
+                <h4>1. Keyword Search</h4>
+                <p>Search YouTube for videos matching your topic:</p>
+                <ul>
+                    <li>Enter search terms in the search field</li>
+                    <li>Set the number of URLs to fetch (1-100)</li>
+                    <li>Apply optional filters:
+                        <ul>
+                            <li><strong>Upload Date:</strong> Last hour, today, week, month, or year</li>
+                            <li><strong>Duration:</strong> Under 4 min, 4-20 min, or over 20 min</li>
+                            <li><strong>Sort By:</strong> Relevance, date, view count, or rating</li>
+                        </ul>
+                    </li>
+                    <li>Click <strong>Fetch</strong> to retrieve URLs</li>
+                </ul>
+            </div>
+
+            <div class="feature-box">
+                <h4>2. Playlist Import</h4>
+                <p>Import all videos from a YouTube playlist:</p>
+                <ul>
+                    <li>Paste a YouTube playlist URL</li>
+                    <li>Click <strong>Fetch</strong> to retrieve all video URLs</li>
+                    <li>View playlist metadata including title, creator, and video count</li>
+                </ul>
+            </div>
+
+            <div class="feature-box">
+                <h4>3. Channel Import</h4>
+                <p>Import recent videos from a YouTube channel:</p>
+                <ul>
+                    <li>Paste a YouTube channel URL</li>
+                    <li>Click <strong>Fetch</strong> to retrieve video URLs</li>
+                    <li>View channel metadata including subscriber count and total views</li>
+                </ul>
+            </div>
+
+            <h3 id="preview-mode">🎞️ Preview Mode</h3>
+            <p>Preview Mode provides a visual card-based interface for managing your URLs before processing:</p>
+            <ul>
+                <li>Click <strong>Preview Mode</strong> button to switch views</li>
+                <li>View thumbnail, title, duration, and upload date for each video</li>
+                <li>Sort videos by various criteria (views, duration, upload date, etc.)</li>
+                <li>Select/deselect videos for batch operations</li>
+                <li>Remove unwanted videos before processing</li>
+            </ul>
+
+            <div class="warning">
+                <strong>⚠️ Note:</strong> Preview Mode requires fetching metadata from YouTube, which may take time for
+                large URL lists.
+            </div>
+
+            <h3 id="bad-urls">Bad URLs Collector</h3>
+            <p>The Bad URLs feature helps you maintain a list of problematic videos to avoid in future searches:</p>
+            <ul>
+                <li>Automatically adds removed URLs when "add to Bad URLs" is checked</li>
+                <li>Prevents these URLs from appearing in future fetch operations</li>
+                <li>Accessible via the red button that appears when URLs are collected</li>
+                <li>Can be cleared or edited at any time</li>
+            </ul>
+        </section>
+
+        <!-- Clip Creation Methods -->
+        <section id="clip-creation" class="section">
+            <h2>✂️ Clip Creation Methods</h2>
+
+            <h3 id="interactive-editor">Interactive Clip Editor with Scene Analysis</h3>
+            <div class="feature-box">
+                <p>The <strong>Interactive Clip Editor (ICE)</strong> is KLYPTON's most powerful feature—a comprehensive scene analysis workstation for creating viral-optimized clips. It combines video playback, synchronized transcript display, a multi-trace analysis chart, and sophisticated clip detection algorithms.</p>
+
+                <h4>Core Capabilities</h4>
+                <ul>
+                    <li><strong>Video Player:</strong> HTML5 player with frame-accurate playback controls, synchronized with transcript and chart</li>
+                    <li><strong>Transcript View:</strong> Clickable word-level transcript for precise clip boundary selection</li>
+                    <li><strong>Timeline Visualization:</strong> Visual clip representation with drag-and-drop reordering</li>
+                    <li><strong>Scene Analysis Chart:</strong> Interactive Plotly chart with 15+ data sources for viral potential analysis</li>
+                    <li><strong>Auto-Clip Generation:</strong> Algorithm-driven clip detection based on customizable energy formulas</li>
+                </ul>
+
+                <h4>Creating Clips Manually</h4>
+                <ul>
+                    <li><strong>Transcript Selection:</strong> Click words to set start (green) and end (red) points, then add to clip list</li>
+                    <li><strong>Timeline C-key:</strong> Click on timeline position and press <kbd>C</kbd> to set start, then again for end</li>
+                    <li><strong>Clip Boundary Editing:</strong> Double-click existing clips to fine-tune boundaries using ▼ markers</li>
+                </ul>
+
+                <h4>Auto-Generating Clips</h4>
+                <ul>
+                    <li>Select <strong>Scene Type</strong>: Viral (balanced), Motion (visual focus), or Audio (sound focus)</li>
+                    <li>Set <strong>Number of Clips</strong>, <strong>Length</strong>, and <strong>Minimum Separation</strong></li>
+                    <li>Adjust <strong>Energy Input</strong> sliders to weight different signals</li>
+                    <li>Click <strong>UPDATE</strong> to populate clips based on analysis</li>
+                </ul>
+
+                <div class="tip">
+                    <strong>💡 Pro Tip:</strong> Enable "Scene/viral analysis" checkbox before starting to pre-scan the video for motion and audio data that powers the analysis chart.
+                </div>
+            </div>
+
+            <h3 id="ai-automatic">✨ AI-Automatic</h3>
+            <div class="feature-box">
+                <p>Uses OpenAI to analyze the entire video transcript and automatically identify the most meaningful
+                    segments.</p>
+                <ul>
+                    <li>No keywords required - AI determines important content</li>
+                    <li>Best for: Creating highlights without specific topics in mind</li>
+                    <li>Requires: OpenAI API key</li>
+                    <li>AI analyzes context, topic transitions, and information density</li>
+                </ul>
+            </div>
+
+            <h3 id="ai-keywords">✨ AI-Keywords</h3>
+            <div class="feature-box">
+                <p>Uses OpenAI to intelligently create clips around your specified keywords with context awareness.</p>
+                <ul>
+                    <li>Keywords guide AI to relevant sections</li>
+                    <li>AI determines optimal clip boundaries around keywords</li>
+                    <li>Best for: Topic-specific summaries with intelligent context</li>
+                    <li>Requires: OpenAI API key and keywords</li>
+                </ul>
+            </div>
+
+            <h3 id="subtitle-keywords">Subtitle Keywords</h3>
+            <div class="feature-box">
+                <p>Creates clips based on exact keyword matches in the video's subtitle file.</p>
+                <ul>
+                    <li>Faster processing - no AI required</li>
+                    <li>Predictable results based on keyword occurrences</li>
+                    <li>Best for: Quick extraction of specific topics</li>
+                    <li>Three matching modes:
+                        <ul>
+                            <li><strong>Exact:</strong> Perfect word match only</li>
+                            <li><strong>Related:</strong> Beginning of word match</li>
+                            <li><strong>Contains:</strong> Wildcard match anywhere in words</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tip">
+                <strong>💡 Tip:</strong> Use "None" as the clip creation method if you only want to download videos or
+                create audio files without making clips.
+            </div>
+        </section>
+
+        <!-- Scene Analysis -->
+        <section id="scene-analysis" class="section">
+            <h2>📊 Scene Analysis System</h2>
+            <p>The Scene Analysis system is KLYPTON's advanced viral clip detection engine. It scans video and audio streams to build multi-dimensional data that powers intelligent clip selection.</p>
+
+            <h3 id="scene-chart">Scene Analysis Chart</h3>
+            <div class="feature-box">
+                <p>An interactive Plotly-based visualization showing all analysis traces over the video timeline:</p>
+                <ul>
+                    <li><strong>Zoom & Pan:</strong> Click-drag to zoom sections; <kbd>Z</kbd> to zoom in, <kbd>X</kbd> to unzoom, <kbd>Shift+X</kbd> to reset</li>
+                    <li><strong>Legend Control:</strong> Click trace names to show/hide; double-click to isolate a single trace</li>
+                    <li><strong>Playhead Sync:</strong> Chart follows video playback; click chart to seek video</li>
+                    <li><strong>Hover Info:</strong> Detailed tooltips showing values at any point</li>
+                    <li><strong>Visual Themes:</strong> Toggle thin/thick lines, light/dark backgrounds</li>
+                    <li><strong>Clip Visualization:</strong> Color-coded bands show clip positions and scores</li>
+                </ul>
+            </div>
+
+            <h3 id="energy-inputs">Energy Inputs (15 Sources)</h3>
+            <p>The chart displays up to 15 data sources, each contributing to the overall CLIP ENERGY calculation:</p>
+
+            <div class="feature-box">
+                <h4>Always Available (from original scan)</h4>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Trace</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Frame Diff</strong></td>
+                            <td>Frame-to-frame visual change intensity. Low = static, High = motion/cuts</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Frame Diff Δ</strong></td>
+                            <td>Rate of change in frame diff. Detects sudden motion starts/stops</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Audio LUFS</strong></td>
+                            <td>Perceived loudness (-70dB to 0dB). Industry-standard audio measurement</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Audio LUFS Δ</strong></td>
+                            <td>Sudden volume changes—yelling, impacts, dramatic moments</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Audio Pitch</strong></td>
+                            <td>Fundamental frequency (85-400Hz for speech). Higher = excitement</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Audio Centroid</strong></td>
+                            <td>Spectral brightness—sharp/tinny vs deep/bassy sounds</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Audio Flatness</strong></td>
+                            <td>Tonal vs noise-like. Low = clear speech/music, High = ambient noise</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="feature-box">
+                <h4>Optional Scans (on-demand)</h4>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Trace</th>
+                            <th>Description</th>
+                            <th>Trigger</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Object Motion</strong></td>
+                            <td>Subject movement isolated from camera motion</td>
+                            <td>Optical Flow scan</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Center Motion</strong></td>
+                            <td>Movement in frame center where subjects appear</td>
+                            <td>Optical Flow scan</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Global Motion</strong></td>
+                            <td>Camera movement (pan, tilt, zoom, shake)</td>
+                            <td>Optical Flow scan</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Face Prominence</strong></td>
+                            <td>Largest face size relative to frame (0-1)</td>
+                            <td>Face scan</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Speech Rate</strong></td>
+                            <td>Words per minute from transcript (100-200 normal)</td>
+                            <td>Transcript required</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Keywords</strong></td>
+                            <td>Your search terms appearing in transcript</td>
+                            <td>Keywords + transcript</td>
+                        </tr>
+                        <tr>
+                            <td><strong>AI Sentiment</strong></td>
+                            <td>GPT-analyzed viral potential per segment</td>
+                            <td>AI Sentiment scan</td>
+                        </tr>
+                        <tr>
+                            <td><strong>YT Most Replayed</strong></td>
+                            <td>Official YouTube heatmap data showing replay hotspots</td>
+                            <td>Available from YT metadata</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="feature-box">
+                <h4>Derived Signals (computed from above)</h4>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td><strong style="color: red;">CLIP ENERGY</strong></td>
+                            <td>Weighted combination of all enabled inputs—the primary viral detection signal</td>
+                        </tr>
+                        <tr>
+                            <td><strong style="color: green;">SYNCHRONY</strong></td>
+                            <td>How much signals rise/fall together. High = coordinated real events, Low = random noise</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cuts</strong></td>
+                            <td>Detected scene transitions and hard cuts (visual ◆ markers)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 id="viral-algorithm">Viral Score Algorithm</h3>
+            <div class="feature-box">
+                <p>The <strong>ViralScore</strong> formula determines clip ranking using three components:</p>
+                <code style="display: block; padding: 15px; background: #2d2d2d; color: #fff; border-radius: 5px; margin: 15px 0;">
+                    ViralScore = (HOOK × weight) + (SUSTAIN × weight) + (SYNCHRONY × weight)
+                </code>
+                <ul>
+                    <li><strong>HOOK:</strong> Attention-grabbing opening. Measures energy rise/fall in the first portion of the clip (configurable % and max seconds)</li>
+                    <li><strong>SUSTAIN:</strong> Engagement-keeping body. Measures consistent energy after the hook with peak bonuses</li>
+                    <li><strong>SYNCHRONY:</strong> Cross-modal coherence. Higher when audio and visual signals align (real events vs artifacts)</li>
+                </ul>
+
+                <h4>Hook Pattern Options</h4>
+                <ul>
+                    <li><strong>Maximum:</strong> Highest average energy in hook window</li>
+                    <li><strong>Minimum:</strong> Lowest average energy (for calm intros)</li>
+                    <li><strong>Max Rise:</strong> Biggest energy increase (building momentum)</li>
+                    <li><strong>Max Drop:</strong> Biggest energy decrease (after peak)</li>
+                    <li><strong>Max Diff:</strong> Highest rise OR drop (maximum contrast)</li>
+                </ul>
+            </div>
+
+            <h3 id="category-profiles">Category Profiles</h3>
+            <div class="feature-box">
+                <p>Different content types require different detection strategies. KLYPTON includes 15 pre-tuned profiles matching YouTube's official categories:</p>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Focus</th>
+                            <th>Key Signals</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🎬 Film & Animation</td>
+                            <td>Cinematic reveals, emotional beats</td>
+                            <td>Motion, AI Sentiment, YT Replayed</td>
+                        </tr>
+                        <tr>
+                            <td>🚗 Autos & Vehicles</td>
+                            <td>Speed, engine sounds, action</td>
+                            <td>Object Motion, LUFS Delta, Pitch</td>
+                        </tr>
+                        <tr>
+                            <td>🎵 Music</td>
+                            <td>Drops, choruses, beat alignment</td>
+                            <td>LUFS, LUFS Delta, Pitch, Centroid</td>
+                        </tr>
+                        <tr>
+                            <td>🐾 Pets & Animals</td>
+                            <td>Reactions, cute/chaotic moments</td>
+                            <td>Object Motion, LUFS Delta, short hooks</td>
+                        </tr>
+                        <tr>
+                            <td>⚽ Sports</td>
+                            <td>Fast motion, impacts, crowd bursts</td>
+                            <td>Motion, LUFS Delta, high sustain</td>
+                        </tr>
+                        <tr>
+                            <td>✈️ Travel & Events</td>
+                            <td>Scenic reveals, crowd moments</td>
+                            <td>Global Motion, Sentiment, Face</td>
+                        </tr>
+                        <tr>
+                            <td>🎮 Gaming</td>
+                            <td>Clutch plays, reactions</td>
+                            <td>Motion, LUFS, Speech Rate, Face</td>
+                        </tr>
+                        <tr>
+                            <td>👥 People & Blogs</td>
+                            <td>Talking head, emotional moments</td>
+                            <td>Face Prominence, Speech Rate, Sentiment</td>
+                        </tr>
+                        <tr>
+                            <td>😂 Comedy</td>
+                            <td>Punchlines, reaction timing</td>
+                            <td>Speech Rate, LUFS spikes, short hooks</td>
+                        </tr>
+                        <tr>
+                            <td>🎭 Entertainment</td>
+                            <td>Broad appeal, variety</td>
+                            <td>Balanced all signals</td>
+                        </tr>
+                        <tr>
+                            <td>📰 News & Politics</td>
+                            <td>Key statements, breaking moments</td>
+                            <td>Speech Rate, Keywords, Sentiment</td>
+                        </tr>
+                        <tr>
+                            <td>🎨 Howto & Style</td>
+                            <td>Demonstrations, reveals</td>
+                            <td>Speech + Visual balance</td>
+                        </tr>
+                        <tr>
+                            <td>📚 Education</td>
+                            <td>Key explanations, structured</td>
+                            <td>Speech Rate, Keywords dominant</td>
+                        </tr>
+                        <tr>
+                            <td>🔬 Science & Tech</td>
+                            <td>Demos, explanations</td>
+                            <td>Speech, structured content</td>
+                        </tr>
+                        <tr>
+                            <td>💚 Nonprofits</td>
+                            <td>Emotional appeals</td>
+                            <td>Sentiment, Speech, Face</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 id="custom-profiles">Custom Viral Profiles</h3>
+            <div class="feature-box">
+                <p>Create and save your own detection profiles tuned to specific content types:</p>
+                <ol>
+                    <li>Click <strong>Create Custom Viral Profile</strong> button</li>
+                    <li>Enter a descriptive name (e.g., "tech_reviews_fast_paced")</li>
+                    <li>Add 3 relevant hashtags for categorization</li>
+                    <li>Optionally add a description</li>
+                    <li>Adjust all sliders and formula weights to your preferences</li>
+                    <li>Click <strong>Save Profile</strong></li>
+                </ol>
+                <p>Custom profiles are saved as JSON files in the <code>custom-viral-profiles/</code> folder and appear in the profile dropdown.</p>
+
+                <div class="tip">
+                    <strong>💡 Tip:</strong> Use the <strong>Analyze Clips</strong> feature to reverse-engineer optimal settings from your manually curated clips.
+                </div>
+            </div>
+
+            <h3 id="cut-detection">Cut Detection</h3>
+            <div class="feature-box">
+                <p>KLYPTON detects scene cuts and transitions to improve clip quality:</p>
+                <ul>
+                    <li><strong>Cut Threshold (%):</strong> Sensitivity for detecting cuts. Lower = more cuts detected (soft transitions). Higher = only major scene changes</li>
+                    <li><strong>Cut Impact (%):</strong> How much cuts affect CLIP ENERGY. 0% = ignore transition energy, 100% = full contribution</li>
+                    <li><strong>Cuts OK in Hook:</strong> Whether to allow scene transitions in the opening hook section. Unchecked favors natural energy builds</li>
+                </ul>
+                <p>Detected cuts appear as ◆ markers on the chart and can be used to avoid clips that start/end mid-transition.</p>
+            </div>
+
+            <h3 id="clip-regression">Clip Regression Analysis</h3>
+            <div class="feature-box">
+                <p>After manually curating clips, use <strong>Analyze Clips</strong> to reverse-engineer optimal settings:</p>
+                <ul>
+                    <li>Computes per-clip metrics: hook deviation, slope, variability, peak location</li>
+                    <li>Compares your clips against full video baseline</li>
+                    <li>Provides insights into what makes your selected clips special</li>
+                    <li>Exports detailed CSV data for further analysis</li>
+                    <li>Helps fine-tune custom viral profiles based on your editorial choices</li>
+                </ul>
+                <p>Results appear in the expandable <strong>Clip Analysis</strong> panel below the chart controls.</p>
+            </div>
+        </section>
+
+        <!-- Transcript Tools -->
+        <section id="transcript-tools" class="section">
+            <h2>📝 Transcript Tools</h2>
+            <p>KLYPTON includes powerful tools for viewing, editing, and enhancing video transcripts.</p>
+
+            <h3 id="transcript-edit-mode">Transcript Edit Mode</h3>
+            <div class="feature-box">
+                <p>Directly edit transcript words within the Interactive Clip Editor:</p>
+                <ul>
+                    <li>Press <kbd>Ctrl+E</kbd> to toggle edit mode (or click the edit icon)</li>
+                    <li>Click any word to edit its text</li>
+                    <li>Delete words that are incorrect or unwanted</li>
+                    <li>Changes are saved to a <code>_user-fixed</code> version of the transcript</li>
+                    <li>Original timing data is preserved</li>
+                    <li>Press <kbd>Ctrl+E</kbd> again to exit edit mode</li>
+                </ul>
+                <div class="warning">
+                    <strong>⚠️ Note:</strong> Running AI-fix will overwrite user edits. We recommend running AI-fix first, then making manual corrections.
+                </div>
+            </div>
+
+            <h3 id="ai-transcript-fix">✨ AI Transcript Fix</h3>
+            <div class="feature-box">
+                <p>Uses OpenAI to add proper capitalization and punctuation to auto-generated YouTube captions:</p>
+                <ul>
+                    <li>Improves readability of raw auto-captions</li>
+                    <li>Preserves word-level timing data</li>
+                    <li>Creates <code>_ai-fixed</code> version of transcript</li>
+                    <li>Automatically generates .txt and .srt versions</li>
+                    <li>Essential for burn-in subtitles and professional output</li>
+                </ul>
+                <p><strong>Usage:</strong> Check the ✨AI-fix checkbox in the transcript header and click to process.</p>
+
+                <div class="tip">
+                    <strong>💡 Cost Tip:</strong> GPT-4o produces ~99% accuracy but costs more. GPT-4o-mini is cheaper but may struggle with longer transcripts. For a 10-minute video, expect ~$0.15 with GPT-4o.
+                </div>
+            </div>
+
+            <h3 id="export-srt">Make SRT</h3>
+            <div class="feature-box">
+                <p>Export the current transcript as an SRT subtitle file:</p>
+                <ul>
+                    <li>Click <strong>Make SRT</strong> button in transcript header</li>
+                    <li>Creates properly formatted .srt file in project folder</li>
+                    <li>Uses the best available transcript version (AI-fixed > user-fixed > original)</li>
+                    <li>Perfect for uploading back to YouTube or other platforms</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Clip Settings -->
+        <section id="clip-settings" class="section">
+            <h2>⚙️ Clip Settings</h2>
+
+            <h3 id="timing-settings">Timing Controls</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Setting</th>
+                        <th>Default</th>
+                        <th>Range</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Clip Min</strong></td>
+                        <td>10s</td>
+                        <td>7-600s</td>
+                        <td>Minimum duration for any clip. Shorter segments will be extended or discarded.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Clip Max</strong></td>
+                        <td>60s</td>
+                        <td>12-600s</td>
+                        <td>Maximum duration for any clip. Longer segments will be trimmed.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Min Sep</strong></td>
+                        <td>0s</td>
+                        <td>0-600s</td>
+                        <td>Minimum separation between clips. Removes clips too close together.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Max Gap</strong></td>
+                        <td>5s</td>
+                        <td>0-60s</td>
+                        <td>Maximum gap to merge clips. Combines clips within this distance.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Final Max</strong></td>
+                        <td>300s</td>
+                        <td>up to 1200s</td>
+                        <td>Maximum total duration of final summary video.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="important">
+                <strong>⚠️ Processing Order:</strong>
+                <ol>
+                    <li>Min Sep runs first - removes clips that are too close</li>
+                    <li>Max Gap runs second - merges remaining clips that are close enough</li>
+                    <li>Final Max trims total duration if needed</li>
+                </ol>
+            </div>
+
+            <h3 id="fade-effects">Fade Effects</h3>
+            <p>Control smooth transitions between clips:</p>
+            <ul>
+                <li><strong>Fade In/Out:</strong> Applied to first and last clips (default: 1 second)</li>
+                <li>Middle clips automatically use half the fade duration for smooth transitions</li>
+                <li>Set to 0 to disable fade effects</li>
+            </ul>
+
+            <h3 id="clip-ordering">Clip Ordering</h3>
+            <p>Choose how clips are arranged in the final video:</p>
+            <ul>
+                <li><strong>Normal:</strong> Chronological order as they appear in the original</li>
+                <li><strong>Reverse:</strong> Last clips first</li>
+                <li><strong>Random:</strong> Randomized order</li>
+            </ul>
+        </section>
+
+        <!-- AI Features -->
+        <section id="ai-features" class="section">
+            <h2>✨ AI Features</h2>
+
+            <h3 id="ai-setup">OpenAI Setup</h3>
+            <ol>
+                <li>Click the <strong>✨API</strong> button in the header or settings panel</li>
+                <li>Enter your OpenAI API key</li>
+                <li>Select model (GPT-4o-mini recommended, GPT-4o, etc.)</li>
+                <li>Adjust temperature (0 = focused, 1 = creative)</li>
+                <li>Choose tone for summaries and titles</li>
+            </ol>
+
+            <div class="warning">
+                <strong>🔑 API Key Required:</strong> You need an OpenAI API key to use AI features. Get one at <a href="https://platform.openai.com" target="_blank">platform.openai.com</a>
+            </div>
+
+            <h3 id="ai-privacy">AI &amp; Privacy</h3>
+            <p>Your OpenAI API key is stored locally on <strong>your machine</strong> (in your app’s local configuration) and is used only when you enable AI features.</p>
+            <ul>
+                <li>If you don’t configure an API key (or disable AI options), KLYPTON won’t call OpenAI.</li>
+                <li>When you use AI features, KLYPTON sends the minimum required text context to OpenAI (typically transcript text) to produce the requested output.</li>
+                <li>This guide intentionally does not cover prompt (re)engineering details.</li>
+            </ul>
+
+            <h3 id="ai-titles">AI Title Generation</h3>
+            <div class="feature-box">
+                <p>Generate engaging, SEO-friendly titles based on video content:</p>
+                <ul>
+                    <li>Maximum character length: 20-200 (default: 75)</li>
+                    <li>Can include first keyword for SEO</li>
+                    <li>Multiple tone options: journalistic, casual, click-baity, etc.</li>
+                    <li>Regenerate titles anytime with 🔄 button in completed videos table</li>
+                </ul>
+            </div>
+
+            <h3 id="ai-summaries">AI Summary Generation</h3>
+            <div class="feature-box">
+                <p>Create concise text summaries of video content:</p>
+                <ul>
+                    <li>Word count: 25-500 words (default: 50)</li>
+                    <li>Customizable tone and format</li>
+                    <li>Option to always generate even without keyword matches</li>
+                    <li>Available tones include:
+                        <ul>
+                            <li>Journalistic, Formal, Casual</li>
+                            <li>Technical, Actionable, Key Takeaways</li>
+                            <li>ELI5 (Explain Like I'm 5)</li>
+                            <li>SEO-optimized for keywords</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <h3 id="ai-sentiment">AI Sentiment Analysis</h3>
+            <div class="feature-box">
+                <p>Uses GPT to analyze transcript segments for viral potential:</p>
+                <ul>
+                    <li>Evaluates emotional hooks, surprise, controversy, humor</li>
+                    <li>Scores each segment 0-1 for shareability</li>
+                    <li>Appears as "AI Sentiment" trace on the Scene Analysis chart</li>
+                    <li>Can be weighted in the CLIP ENERGY calculation</li>
+                    <li>Triggered on-demand within the Interactive Clip Editor</li>
+                </ul>
+                <p><strong>When to use:</strong> For content where emotional/narrative peaks matter more than visual motion (vlogs, commentary, interviews).</p>
+            </div>
+        </section>
+
+        <!-- Video & Audio -->
+        <section id="video-audio" class="section">
+            <h2>🎬 Video & Audio Processing</h2>
+
+            <h3 id="video-quality">Video Quality Settings</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Quality Option</th>
+                        <th>Resolution</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Highest Available</td>
+                        <td>Up to 4K</td>
+                        <td>Maximum quality, larger files</td>
+                    </tr>
+                    <tr>
+                        <td>1080p (Full HD)</td>
+                        <td>1920x1080</td>
+                        <td>High quality, reasonable size</td>
+                    </tr>
+                    <tr>
+                        <td>720p (HD)</td>
+                        <td>1280x720</td>
+                        <td>Good quality, smaller files</td>
+                    </tr>
+                    <tr>
+                        <td>480p (SD)</td>
+                        <td>854x480</td>
+                        <td>Default - balanced quality/speed</td>
+                    </tr>
+                    <tr>
+                        <td>Smallest Available</td>
+                        <td>Varies</td>
+                        <td>Fastest processing, minimal storage</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 id="video-enhancements">Video Enhancements</h3>
+            <div class="feature-box">
+                <h4>Speed Adjustment</h4>
+                <ul>
+                    <li>Speed range: 0.25x to 4x</li>
+                    <li>Option to maintain pitch (prevents chipmunk effect)</li>
+                    <li>Useful for time-lapse or slow-motion effects</li>
+                </ul>
+            </div>
+
+            <div class="feature-box">
+                <h4>Color & Lighting</h4>
+                <ul>
+                    <li><strong>Brightness:</strong> -0.5 to +0.5 adjustment</li>
+                    <li><strong>Contrast:</strong> -2.0 to +2.0 adjustment</li>
+                    <li><strong>Saturation:</strong> 0 to 3.0 (0 = grayscale)</li>
+                </ul>
+            </div>
+
+            <div class="feature-box">
+                <h4>Rotate & Flip</h4>
+                <ul>
+                    <li>Rotate: 90°, -90°, or 180°</li>
+                    <li>Flip: Horizontal or Vertical</li>
+                    <li>Useful for correcting orientation issues</li>
+                </ul>
+            </div>
+
+            <h3 id="audio-enhancements">Audio Enhancements</h3>
+            <div class="feature-box">
+                <h4>Audio Leveling</h4>
+                <ul>
+                    <li>Target Loudness: -24 to -14 LUFS</li>
+                    <li>Loudness Range: 1-20 LRA</li>
+                    <li>True Peak: -3 to 0 dB</li>
+                    <li>Normalizes audio for consistent volume</li>
+                </ul>
+            </div>
+
+            <div class="feature-box">
+                <h4>Noise Reduction</h4>
+                <ul>
+                    <li>Strength: 0-100</li>
+                    <li>Removes background noise, hiss, and hum</li>
+                    <li>Three presets: Low (hiss), Medium (hum), High (fan noise)</li>
+                </ul>
+            </div>
+
+            <div class="feature-box">
+                <h4>Equalizer</h4>
+                <ul>
+                    <li>6-band EQ: 60Hz, 250Hz, 1kHz, 4kHz, 8kHz, 16kHz</li>
+                    <li>Presets: Podcast Clarity, Vocal Boost, Bass Boost, etc.</li>
+                    <li>Volume and balance controls</li>
+                </ul>
+            </div>
+
+            <div class="tip">
+                <strong>🎵 Audio Files:</strong> Check "Create audio files" to export MP3/WAV versions of your clips,
+                summary video, and full-length video.
+            </div>
+        </section>
+
+        <!-- Subtitles -->
+        <section id="subtitles" class="section">
+            <h2>📝 Subtitle Features</h2>
+
+            <h3 id="subtitle-formats">Export Formats</h3>
+            <p>KLYPTON can export subtitles in multiple formats:</p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Format</th>
+                        <th>Extension</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>TXT</strong></td>
+                        <td>.txt</td>
+                        <td>Plain text transcripts (always created)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SRT</strong></td>
+                        <td>.srt</td>
+                        <td>Universal compatibility, most players</td>
+                    </tr>
+                    <tr>
+                        <td><strong>VTT</strong></td>
+                        <td>.vtt</td>
+                        <td>Web video (YouTube, Vimeo), supports styling</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ASS</strong></td>
+                        <td>.ass</td>
+                        <td>Advanced styling, animations, custom fonts</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TTML</strong></td>
+                        <td>.ttml</td>
+                        <td>Streaming services (Netflix, Amazon)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CSV</strong></td>
+                        <td>.csv</td>
+                        <td>Spreadsheets, data analysis</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 id="burn-in">🔥 Burn-in Subtitles</h3>
+            <p>Permanently embed subtitles into the video:</p>
+            <ul>
+                <li><strong>Font customization:</strong> Choose from curated fonts or system fonts</li>
+                <li><strong>Positioning:</strong> 9-point grid alignment</li>
+                <li><strong>Styling options:</strong>
+                    <ul>
+                        <li>Font size: 10-80pt</li>
+                        <li>Colors and opacity</li>
+                        <li>Shadow and outline effects</li>
+                        <li>Box background option</li>
+                    </ul>
+                </li>
+                <li><strong>Special features:</strong>
+                    <ul>
+                        <li>Bold keywords automatically</li>
+                        <li>Adjustable margins</li>
+                        <li>Preview before applying</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3 id="keyword-highlighting">Keyword Highlighting</h3>
+            <p>Highlight keywords in transcript files:</p>
+            <ul>
+                <li>Keywords wrapped in triple backticks: ```keyword```</li>
+                <li>Adds "_kwh" suffix to filenames</li>
+                <li>Includes keyword density statistics:
+                    <ul>
+                        <li>Individual keyword counts</li>
+                        <li>Density percentages</li>
+                        <li>Total keyword statistics</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Watermarks -->
+        <section id="watermarks" class="section">
+            <h2>💧 Watermarks</h2>
+            <p>Add custom branding to your videos with text or image watermarks:</p>
+
+            <div class="feature-box">
+                <h4>Text Watermarks</h4>
+                <ul>
+                    <li>Custom text with font selection</li>
+                    <li>Color picker with opacity control</li>
+                    <li>Optional outline for visibility</li>
+                    <li>Default: "KLYPTON" in red</li>
+                </ul>
+            </div>
+
+            <div class="feature-box">
+                <h4>Image Watermarks</h4>
+                <ul>
+                    <li>Support for PNG, JPEG, GIF formats</li>
+                    <li>Automatic transparency support</li>
+                    <li>Upload custom logos or graphics</li>
+                </ul>
+            </div>
+
+            <div class="feature-box">
+                <h4>Watermark Controls</h4>
+                <ul>
+                    <li><strong>Positioning:</strong> 9-point grid alignment</li>
+                    <li><strong>Scale:</strong> 5-50% of video size</li>
+                    <li><strong>Opacity:</strong> 5-100% transparency</li>
+                    <li><strong>Rotation:</strong> -90° to +90°</li>
+                    <li><strong>Desaturation:</strong> 0-100% (for subtle branding)</li>
+                    <li><strong>Tiling:</strong> Repeat watermark across video</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Advanced Features -->
+        <section id="advanced" class="section">
+            <h2>🔧 Advanced Features</h2>
+
+            <h3 id="vpn-integration">🌍 VPN Integration</h3>
+            <p>KLYPTON integrates with Private Internet Access (PIA) VPN for enhanced access:</p>
+
+            <div class="feature-box">
+                <h4>Benefits</h4>
+                <ul>
+                    <li>Bypass geographic restrictions</li>
+                    <li>Avoid throttling and rate limiting</li>
+                    <li>Automatic IP rotation between jobs</li>
+                    <li>Access to region-locked content</li>
+                </ul>
+            </div>
+
+            <div class="feature-box">
+                <h4>IP Rotation Options</h4>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Timing</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Automatic</strong></td>
+                            <td>Rotates when errors detected (429, 403, etc.)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Every batch</strong></td>
+                            <td>Once before processing multiple URLs</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Every job</strong></td>
+                            <td>Before each individual video</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Every operation</strong></td>
+                            <td>Before jobs, fetches, and previews</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="warning">
+                <strong>⚠️ Note:</strong> Requires PIA VPN subscription and client installed on your system.
+            </div>
+
+            <h3 id="browser-cookies">🍪 Browser Cookies</h3>
+            <p>Use browser cookies for enhanced YouTube access:</p>
+            <ul>
+                <li>Helps avoid rate limiting</li>
+                <li>Access to age-restricted content</li>
+                <li>Better video quality availability</li>
+                <li>Setup: Export cookies from browser as <code>youtube-cookies.txt</code></li>
+            </ul>
+
+            <h3 id="batch-processing">Batch Processing</h3>
+            <p>Process multiple videos efficiently:</p>
+            <ul>
+                <li>Up to 100 videos per batch</li>
+                <li>Automatic error recovery</li>
+                <li>Progress tracking for each job</li>
+                <li>Option to check existing project folders</li>
+                <li>ESC key to abort batch at any time</li>
+            </ul>
+
+            <div class="tip">
+                <strong>💡 Performance Tip:</strong> Enable "Check project folders first" to reuse previously downloaded
+                assets and save bandwidth.
+            </div>
+        </section>
+
+        <!-- Completed Videos Table -->
+        <section id="completed-videos" class="section">
+            <h2>📊 Completed Videos Table</h2>
+            <p>Track all processed videos with comprehensive details:</p>
+
+            <div class="feature-box">
+                <h4>Table Information</h4>
+                <ul>
+                    <li><strong>DateTime:</strong> When the job was processed</li>
+                    <li><strong>Video URL:</strong> Original YouTube link (clickable)</li>
+                    <li><strong>Length:</strong> Duration and word count</li>
+                    <li><strong>Keywords:</strong> Keywords used and match counts</li>
+                    <li><strong>Clip Method:</strong> How clips were created (Interactive, AI, Subtitle, etc.)</li>
+                    <li><strong>Clips:</strong> Number of clips created</li>
+                    <li><strong>Summary Video:</strong> Duration, word count, resolution</li>
+                    <li><strong>Titles:</strong> Original and AI-generated</li>
+                    <li><strong>Summary:</strong> AI-generated summary (expandable)</li>
+                    <li><strong>Output Path:</strong> Project folder location (clickable to open)</li>
+                    <li><strong>Result:</strong> Job status (🟢 Complete, 🟡 Partial, 🔴 Failed)</li>
+                </ul>
+            </div>
+
+            <div class="feature-box">
+                <h4>Table Actions</h4>
+                <ul>
+                    <li><strong>Sort by Date:</strong> Toggle ascending/descending by job timestamp</li>
+                    <li><strong>Sort by Result:</strong> Group by completion status (success/partial/failed)</li>
+                    <li><strong>Export:</strong> Save table data as CSV file for external analysis</li>
+                    <li><strong>Clear:</strong> Remove all entries (with confirmation)</li>
+                    <li><strong>Regenerate AI (🔄):</strong> Click to create new AI titles or summaries for any row</li>
+                    <li><strong>Copy Cells:</strong> Click any cell content to copy to clipboard</li>
+                    <li><strong>Expand Summary:</strong> Click 🔻 to show full AI summary, 🔺 to collapse</li>
+                </ul>
+            </div>
+
+            <div class="tip">
+                <strong>💡 Tip:</strong> Table data persists across sessions. Use the Export feature to backup your processing history or import into spreadsheets for analysis.
+            </div>
+        </section>
+
+        <!-- Keyboard Shortcuts -->
+        <section id="keyboard-shortcuts" class="section">
+            <h2>⌨️ Keyboard Shortcuts</h2>
+
+            <h3>Global Shortcuts</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Shortcut</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>→</kbd></td>
+                        <td>Copy last URL to URL box</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd></td>
+                        <td>Clean and deduplicate URLs</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd></td>
+                        <td>Open OpenAI settings</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>Ctrl</kbd> + <kbd>Enter</kbd></td>
+                        <td>Start processing (GO)</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>ESC</kbd></td>
+                        <td>Close popup / Abort current batch</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>Shift</kbd> + <kbd>ESC</kbd></td>
+                        <td>Maximize log window</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Interactive Clip Editor Shortcuts</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Shortcut</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><kbd>Space</kbd></td>
+                        <td>Play/Pause video</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>←</kbd> / <kbd>→</kbd></td>
+                        <td>Seek 10 seconds (when Seek Lock enabled)</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>Shift</kbd> + <kbd>←</kbd> / <kbd>→</kbd></td>
+                        <td>Seek 30 seconds</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>↑</kbd> / <kbd>↓</kbd></td>
+                        <td>Seek 1 second (when Seek Lock enabled)</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>C</kbd></td>
+                        <td>Set clip start/end point at timeline position</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>L</kbd></td>
+                        <td>Toggle Scroll Lock (chart follows playhead)</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>S</kbd></td>
+                        <td>Toggle Seek Lock (enable arrow key seeking)</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>Z</kbd></td>
+                        <td>Zoom chart one level</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>X</kbd></td>
+                        <td>Unzoom chart one level</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>Shift</kbd> + <kbd>X</kbd></td>
+                        <td>Reset chart to full view</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>Ctrl</kbd> + <kbd>E</kbd></td>
+                        <td>Toggle Transcript Edit Mode</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Chart Interactions</h3>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td><strong>Click + Drag</strong></td>
+                        <td>Zoom to selected region</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Click legend item</strong></td>
+                        <td>Show/hide that trace</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Double-click legend</strong></td>
+                        <td>Isolate trace (hide all others)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Double-click clip</strong></td>
+                        <td>Zoom chart to clip region</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Click chart</strong></td>
+                        <td>Seek video to that position</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Troubleshooting -->
+        <section id="troubleshooting" class="section">
+            <h2>🔍 Troubleshooting</h2>
+
+            <div class="feature-box">
+                <h4>Common Issues and Solutions</h4>
+
+                <p><strong>❌ "No transcript found"</strong></p>
+                <ul>
+                    <li>Video may not have captions available</li>
+                    <li>Try enabling browser cookies</li>
+                    <li>Check if video is age-restricted</li>
+                </ul>
+
+                <p><strong>⚠️ "HTTP Error 429" or "403"</strong></p>
+                <ul>
+                    <li>YouTube rate limiting detected</li>
+                    <li>Enable VPN with IP rotation</li>
+                    <li>Use browser cookies</li>
+                    <li>Reduce batch size</li>
+                </ul>
+
+                <p><strong>🚫 "Too few spoken words"</strong></p>
+                <ul>
+                    <li>Video transcript below minimum threshold</li>
+                    <li>Lower "Transcript min word" setting</li>
+                    <li>Video may be music or non-speech content</li>
+                </ul>
+
+                <p><strong>⏱️ Processing takes too long</strong></p>
+                <ul>
+                    <li>Use lower video quality (480p recommended)</li>
+                    <li>Disable video/audio enhancements</li>
+                    <li>Process fewer videos at once</li>
+                    <li>Enable "Check project folders first"</li>
+                    <li>Use 0.50s or 1.00s data interval instead of 0.25s for very long videos</li>
+                </ul>
+
+                <p><strong>✨ AI features not working</strong></p>
+                <ul>
+                    <li>Verify OpenAI API key is valid</li>
+                    <li>Check API credit balance</li>
+                    <li>Try different AI model</li>
+                    <li>Review custom prompts for errors</li>
+                </ul>
+
+                <p><strong>📊 Scene Analysis chart not appearing</strong></p>
+                <ul>
+                    <li>Ensure "Scene/viral analysis" checkbox was enabled before starting</li>
+                    <li>Wait for analysis scan to complete (check log for progress)</li>
+                    <li>For very long videos, processing may take several minutes</li>
+                </ul>
+
+                <p><strong>📈 CLIP ENERGY sliders not adding to 100%</strong></p>
+                <ul>
+                    <li>Use arrow keys while focused on sliders for precise adjustment</li>
+                    <li>The total must equal 100% for the algorithm to work correctly</li>
+                    <li>Check the warning indicator at the top of the CLIP ENERGY section</li>
+                </ul>
+
+                <p><strong>🔄 Optional scans (Face, Optical Flow, AI Sentiment) not running</strong></p>
+                <ul>
+                    <li>Click the ↗ arrow next to the trace label to trigger the scan</li>
+                    <li>Wait for the scan progress indicator to complete</li>
+                    <li>Some scans require significant processing time for long videos</li>
+                </ul>
+
+                <p><strong>📝 Transcript Edit changes not saving</strong></p>
+                <ul>
+                    <li>Ensure you're in Transcript Edit Mode (Ctrl+E to toggle)</li>
+                    <li>Click outside the edited word to confirm the change</li>
+                    <li>Check that the _user-fixed file was created in the project folder</li>
+                </ul>
+
+                <p><strong>💥 Clips generated don't match expectations</strong></p>
+                <ul>
+                    <li>Try a different Category Profile matching your content type</li>
+                    <li>Adjust the Hook/Sustain/Synchrony formula weights</li>
+                    <li>Modify CLIP ENERGY slider weights to emphasize relevant signals</li>
+                    <li>Enable "Bind to word" or "Bind to sentence" for cleaner clip boundaries</li>
+                    <li>Use Analyze Clips to understand what signals your preferred clips share</li>
+                </ul>
+            </div>
+
+            <div class="tip">
+                <strong>💡 Log Messages:</strong> The SSE log provides detailed information about each operation. Check
+                it for specific error messages and warnings. Look for spinners indicating ongoing processes.
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section class="section">
+            <div class="text-center text-muted">
+                <p><small>KLYPTON - Advanced Video Analysis & Clip Creation Tool</small></p>
+                <p><small>For educational and fair use purposes only. Respect copyright and YouTube's Terms of Service.</small></p>
+            </div>
+        </section>
+    </div>
+
+    <!-- JavaScript for smooth scrolling and active nav highlighting -->
+    <script>
+        // Smooth scroll and active nav highlighting
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('section[id], h3[id]');
+            const navLinks = document.querySelectorAll('.sidebar-nav a');
+
+            // Update active nav on scroll
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= sectionTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // Smooth scroll on click
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // ========== SEARCH FUNCTIONALITY ==========
+            const searchInput = document.getElementById('docsSearchInput');
+            const searchResults = document.getElementById('docsSearchResults');
+
+            // Build searchable index from document content
+            function buildSearchIndex() {
+                const index = [];
+                const mainContent = document.querySelector('.main-content');
+                const allSections = mainContent.querySelectorAll('section[id]');
+
+                allSections.forEach(section => {
+                    const sectionId = section.id;
+                    const sectionH2 = section.querySelector('h2');
+                    const sectionTitle = sectionH2 ? sectionH2.textContent.trim() : sectionId;
+
+                    // Index the section title
+                    index.push({
+                        type: 'section',
+                        title: sectionTitle,
+                        section: sectionTitle,
+                        id: sectionId,
+                        content: sectionTitle
+                    });
+
+                    // Index h3 subheadings within the section
+                    const subHeadings = section.querySelectorAll('h3[id]');
+                    subHeadings.forEach(h3 => {
+                        index.push({
+                            type: 'subheading',
+                            title: h3.textContent.trim(),
+                            section: sectionTitle,
+                            id: h3.id,
+                            content: h3.textContent.trim()
+                        });
+                    });
+
+                    // Index h4 headings (feature boxes, etc.)
+                    const h4Headings = section.querySelectorAll('h4');
+                    h4Headings.forEach(h4 => {
+                        const nearestAnchor = h4.closest('[id]');
+                        if (nearestAnchor) {
+                            index.push({
+                                type: 'topic',
+                                title: h4.textContent.trim(),
+                                section: sectionTitle,
+                                id: nearestAnchor.id,
+                                content: h4.textContent.trim()
+                            });
+                        }
+                    });
+
+                    // Index list items and paragraphs with meaningful content
+                    const listItems = section.querySelectorAll('li');
+                    listItems.forEach(li => {
+                        const text = li.textContent.trim();
+                        if (text.length > 20 && text.length < 200) {
+                            const nearestAnchor = li.closest('[id]') || section;
+                            index.push({
+                                type: 'content',
+                                title: text.substring(0, 60) + (text.length > 60 ? '...' : ''),
+                                section: sectionTitle,
+                                id: nearestAnchor.id || sectionId,
+                                content: text
+                            });
+                        }
+                    });
+
+                    // Index strong/bold terms within paragraphs
+                    const strongTerms = section.querySelectorAll('p strong, p b');
+                    strongTerms.forEach(strong => {
+                        const text = strong.textContent.trim();
+                        if (text.length > 3 && text.length < 80) {
+                            const nearestAnchor = strong.closest('[id]') || section;
+                            const parentText = strong.parentElement.textContent.trim();
+                            index.push({
+                                type: 'term',
+                                title: text,
+                                section: sectionTitle,
+                                id: nearestAnchor.id || sectionId,
+                                content: parentText.substring(0, 120)
+                            });
+                        }
+                    });
+
+                    // Index kbd shortcuts
+                    const kbdElements = section.querySelectorAll('kbd');
+                    kbdElements.forEach(kbd => {
+                        const text = kbd.textContent.trim();
+                        const nearestAnchor = kbd.closest('[id]') || section;
+                        const contextEl = kbd.closest('li, p, td');
+                        const context = contextEl ? contextEl.textContent.trim() : '';
+                        index.push({
+                            type: 'shortcut',
+                            title: `Shortcut: ${text}`,
+                            section: sectionTitle,
+                            id: nearestAnchor.id || sectionId,
+                            content: context.substring(0, 100)
+                        });
+                    });
+                });
+
+                return index;
+            }
+
+            const searchIndex = buildSearchIndex();
+
+            // Search function
+            function performSearch(query) {
+                if (query.length < 3) return [];
+
+                const lowerQuery = query.toLowerCase();
+                const results = [];
+                const seen = new Set();
+
+                // Score and filter results
+                searchIndex.forEach(item => {
+                    const titleLower = item.title.toLowerCase();
+                    const contentLower = item.content.toLowerCase();
+
+                    let score = 0;
+                    let matchText = '';
+
+                    // Exact title match (highest priority)
+                    if (titleLower === lowerQuery) {
+                        score = 100;
+                        matchText = item.title;
+                    }
+                    // Title starts with query
+                    else if (titleLower.startsWith(lowerQuery)) {
+                        score = 80;
+                        matchText = item.title;
+                    }
+                    // Title contains query
+                    else if (titleLower.includes(lowerQuery)) {
+                        score = 60;
+                        matchText = item.title;
+                    }
+                    // Content contains query
+                    else if (contentLower.includes(lowerQuery)) {
+                        score = 40;
+                        // Extract match context
+                        const idx = contentLower.indexOf(lowerQuery);
+                        const start = Math.max(0, idx - 20);
+                        const end = Math.min(item.content.length, idx + query.length + 40);
+                        matchText = (start > 0 ? '...' : '') +
+                            item.content.substring(start, end) +
+                            (end < item.content.length ? '...' : '');
+                    }
+
+                    // Boost score based on type
+                    if (score > 0) {
+                        if (item.type === 'section') score += 20;
+                        else if (item.type === 'subheading') score += 15;
+                        else if (item.type === 'topic') score += 10;
+                        else if (item.type === 'shortcut') score += 5;
+
+                        // Avoid duplicate destinations
+                        const key = item.id + '|' + item.title.substring(0, 30);
+                        if (!seen.has(key)) {
+                            seen.add(key);
+                            results.push({ ...item, score, matchText });
+                        }
+                    }
+                });
+
+                // Sort by score and limit to 12 results
+                results.sort((a, b) => b.score - a.score);
+                return results.slice(0, 12);
+            }
+
+            // Highlight match in text
+            function highlightMatch(text, query) {
+                const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+                return text.replace(regex, '<mark>$1</mark>');
+            }
+
+            // Render search results
+            function renderResults(results, query) {
+                if (results.length === 0) {
+                    searchResults.innerHTML = '<div class="docs-search-no-results">No results found</div>';
+                    searchResults.classList.add('show');
+                    return;
+                }
+
+                let html = '';
+                results.forEach(result => {
+                    const typeIcon = {
+                        section: '📋',
+                        subheading: '📌',
+                        topic: '📎',
+                        content: '📄',
+                        term: '🔤',
+                        shortcut: '⌨️'
+                    }[result.type] || '📄';
+
+                    html += `
+                        <div class="docs-search-result" data-target="${result.id}">
+                            <div class="docs-search-result-title">${typeIcon} ${highlightMatch(result.title, query)}</div>
+                            <div class="docs-search-result-section">in ${result.section}</div>
+                            ${result.matchText !== result.title ? `<div class="docs-search-result-match">${highlightMatch(result.matchText, query)}</div>` : ''}
+                        </div>
+                    `;
+                });
+
+                searchResults.innerHTML = html;
+                searchResults.classList.add('show');
+
+                // Add click handlers to results
+                searchResults.querySelectorAll('.docs-search-result').forEach(el => {
+                    el.addEventListener('click', () => {
+                        const targetId = el.dataset.target;
+                        const targetEl = document.getElementById(targetId);
+                        if (targetEl) {
+                            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            searchResults.classList.remove('show');
+                            searchInput.value = '';
+                        }
+                    });
+                });
+            }
+
+            // Input handler with debounce
+            let searchTimeout;
+            searchInput.addEventListener('input', (e) => {
+                clearTimeout(searchTimeout);
+                const query = e.target.value.trim();
+
+                if (query.length < 3) {
+                    searchResults.classList.remove('show');
+                    return;
+                }
+
+                searchTimeout = setTimeout(() => {
+                    const results = performSearch(query);
+                    renderResults(results, query);
+                }, 150);
+            });
+
+            // Close results and clear input when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.docs-search-wrapper')) {
+                    searchResults.classList.remove('show');
+                    searchInput.value = '';
+                }
+            });
+
+            // Keyboard navigation
+            searchInput.addEventListener('keydown', (e) => {
+                const resultItems = searchResults.querySelectorAll('.docs-search-result');
+                const activeItem = searchResults.querySelector('.docs-search-result:hover, .docs-search-result.focused');
+                let currentIndex = Array.from(resultItems).indexOf(activeItem);
+
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    resultItems.forEach(item => item.classList.remove('focused'));
+                    currentIndex = Math.min(currentIndex + 1, resultItems.length - 1);
+                    if (resultItems[currentIndex]) {
+                        resultItems[currentIndex].classList.add('focused');
+                        resultItems[currentIndex].scrollIntoView({ block: 'nearest' });
+                    }
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    resultItems.forEach(item => item.classList.remove('focused'));
+                    currentIndex = Math.max(currentIndex - 1, 0);
+                    if (resultItems[currentIndex]) {
+                        resultItems[currentIndex].classList.add('focused');
+                        resultItems[currentIndex].scrollIntoView({ block: 'nearest' });
+                    }
+                } else if (e.key === 'Enter') {
+                    const focusedItem = searchResults.querySelector('.docs-search-result.focused');
+                    if (focusedItem) {
+                        focusedItem.click();
+                    }
+                } else if (e.key === 'Escape') {
+                    searchResults.classList.remove('show');
+                    searchInput.blur();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

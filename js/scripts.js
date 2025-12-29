@@ -51,4 +51,141 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    // Contact Form Submission
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Add Bootstrap validation classes
+            contactForm.classList.add('was-validated');
+            
+            // Check if form is valid
+            if (!contactForm.checkValidity()) {
+                return;
+            }
+            
+            const submitButton = document.getElementById('submitButton');
+            const successMessage = document.getElementById('submitSuccessMessage');
+            const errorMessage = document.getElementById('submitErrorMessage');
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                category: document.getElementById('category').value,
+                message: document.getElementById('message').value,
+                to: 'admin@klypton.com'
+            };
+            
+            // Security validation - check for dangerous content
+            const dangerousPatterns = /<script|<\/script|javascript:|on\w+\s*=|<iframe|<object|<embed/i;
+            if (dangerousPatterns.test(formData.name) || 
+                dangerousPatterns.test(formData.message) || 
+                dangerousPatterns.test(formData.email)) {
+                errorMessage.querySelector('div').textContent = 'Invalid characters detected.';
+                errorMessage.classList.remove('d-none');
+                return;
+            }
+            
+            // Length validation
+            if (formData.message.length > 5000) {
+                errorMessage.querySelector('div').textContent = 'Message too long (max 5000 characters).';
+                errorMessage.classList.remove('d-none');
+                return;
+            }
+            
+            if (formData.name.length > 100) {
+                errorMessage.querySelector('div').textContent = 'Name too long (max 100 characters).';
+                errorMessage.classList.remove('d-none');
+                return;
+            }
+            
+            // Disable button while submitting
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            
+            // Hide any previous messages
+            successMessage.classList.add('d-none');
+            errorMessage.classList.add('d-none');
+            
+            // Send email via fetch to backend endpoint
+            fetch('/contact.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Network response was not ok');
+            })
+            .then(data => {
+                // Show success message
+                successMessage.classList.remove('d-none');
+                contactForm.reset();
+                contactForm.classList.remove('was-validated');
+            })
+            .catch(error => {
+                // Show error message
+                errorMessage.classList.remove('d-none');
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send';
+            });
+        });
+    }
+
+    // Update footer year to current year
+    document.querySelectorAll('.footer-year').forEach(el => {
+        el.textContent = new Date().getFullYear();
+    });
+
+    // Fetch latest release from GitHub and update download buttons
+    fetch('https://api.github.com/repos/gtkm1/klypton-releases/releases/latest')
+        .then(response => response.json())
+        .then(data => {
+            const version = data.tag_name; // e.g., "v1.4.26"
+            const versionDisplay = version.replace('v', 'ver '); // "ver 1.4.26"
+            
+            // Find the zip asset download URL
+            let directDownloadUrl = data.html_url; // Fallback to release page
+            if (data.assets && data.assets.length > 0) {
+                const zipAsset = data.assets.find(asset => asset.name.endsWith('.zip'));
+                if (zipAsset) {
+                    directDownloadUrl = zipAsset.browser_download_url;
+                }
+            }
+            
+            // Update version text on all download buttons
+            document.querySelectorAll('.download-version').forEach(el => {
+                el.textContent = versionDisplay;
+            });
+            
+            // Update direct download buttons (zip file)
+            document.querySelectorAll('.download-btn-direct').forEach(btn => {
+                btn.href = directDownloadUrl;
+            });
+            
+            // Update GitHub download buttons (release page)
+            document.querySelectorAll('.download-btn-github').forEach(btn => {
+                btn.href = data.html_url;
+            });
+        })
+        .catch(err => console.log('Could not fetch latest release:', err));
+
+    // Track download button clicks
+    document.querySelectorAll('.download-btn-direct, .download-btn-github').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            fetch('/log-download.php', {
+                method: 'POST'
+            }).catch(err => console.log('Download tracking error:', err));
+        });
+    });
+
 });
