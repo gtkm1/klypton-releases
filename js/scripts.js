@@ -188,4 +188,14 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    // Reveal docs section when clicking docs nav link
+    document.querySelectorAll('.docs-nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const docsSection = document.getElementById('docs');
+            if (docsSection) {
+                docsSection.classList.remove('d-none');
+            }
+        });
+    });
+
 });

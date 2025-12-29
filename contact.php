@@ -77,7 +77,7 @@ $emailBody .= "Category: $category\n";
 $emailBody .= "Message:\n$message\n";
 
 // Email headers
-$headers = "From: noreply@klypton.com\r\n";
+$headers = "From: admin@klypton.com\r\n";
 $headers .= "Reply-To: $email\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion();
 
