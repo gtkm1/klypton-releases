@@ -250,7 +250,7 @@ window.addEventListener('DOMContentLoaded', event => {
         .then(data => {
             const dlcElement = document.getElementById('dlc');
             if (dlcElement && data.success) {
-                dlcElement.textContent = data.count.toLocaleString() + ' downloads';
+                dlcElement.textContent = data.count.toLocaleString();
             }
         })
         .catch(err => console.log('Could not fetch download count:', err));
