@@ -244,4 +244,15 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    // Fetch and display download count
+    fetch('/get-download-count.php')
+        .then(response => response.json())
+        .then(data => {
+            const dlcElement = document.getElementById('dlc');
+            if (dlcElement && data.success) {
+                dlcElement.textContent = data.count.toLocaleString() + ' downloads';
+            }
+        })
+        .catch(err => console.log('Could not fetch download count:', err));
+
 });
