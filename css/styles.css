@@ -11090,3 +11090,7 @@ html {
 .copyright {
     background-color: var(--bs-custom1);
 }
+
+#dlc {
+    color: #ccc;
+}
